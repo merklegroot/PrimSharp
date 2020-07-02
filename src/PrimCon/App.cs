@@ -5,9 +5,7 @@ namespace PrimCon
 {
     public class App
     {
-        public void Run()
-        {
+        public void Run() =>
             new Cube().AsBox().Dump();
-        }
     }
 }

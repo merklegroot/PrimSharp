@@ -1,20 +1,33 @@
+using Newtonsoft.Json;
+
 namespace PrimLib
 {
     public abstract class Prim : IPrim
     {
-        public abstract string Render();
-
-        public override string ToString() => Render();
-
         public virtual IPrim Union(IPrim b) => new PrimUnion(this, b);
         public virtual IPrim Subtract(IPrim b) => new PrimSubtraction(this, b);
 
-        public virtual decimal[] Offset { get; private set; } = new decimal[3];
-        public decimal OffsetX { get => Offset[0]; set => Offset[0] = value; }
-        public decimal OffsetY { get => Offset[1]; set => Offset[1] = value; }
-        public decimal OffsetZ { get => Offset[2]; set => Offset[2] = value; }
+        public IPrim Translate(decimal x, decimal y, decimal z) => Translate(new decimal[] {x, y, z});
 
-        public void Translate(decimal x, decimal y, decimal z) { OffsetX += x; OffsetY += y; OffsetZ += z; }
-        public void Translate(decimal[] offset) { Offset[0] += offset[0]; Offset[1] += offset[1]; Offset[2] += offset[2]; }
+        public IPrim Translate(decimal[] offset) =>
+            new Translation(this, offset);
+
+        protected TSelf CloneAs<TSelf>() => JsonConvert.DeserializeObject<TSelf>(JsonConvert.SerializeObject(this));
+
+        public override string ToString() => Render();
+
+        public abstract string Render();
+
+        public IRotation RotateX(decimal angle) => 
+            new Rotation(this, 0, angle);
+
+        public IRotation RotateY(decimal angle) =>
+            new Rotation(this, 1, angle);
+
+        public IRotation RotateZ(decimal angle) =>
+            new Rotation(this, 2, angle);
+
+        public IRotation Rotate(int axis, decimal angle) =>
+            new Rotation(this, axis, angle);
     }
 }
