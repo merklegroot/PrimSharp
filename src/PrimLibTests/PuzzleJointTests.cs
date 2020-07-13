@@ -4,19 +4,22 @@ using Xunit.Abstractions;
 
 namespace PrimLibTests
 {
-    public class NubbinTests
+    public class PuzzleJointTests
     {
         private readonly ITestOutputHelper _outputHelper;
 
-        public NubbinTests(ITestOutputHelper outputHelper)
+        public PuzzleJointTests(ITestOutputHelper outputHelper)
         {
             _outputHelper = outputHelper;
         }
 
         [Fact]
-        public void Nubbin_with_defaults()
+        public void Puzzle_joint_with_defaults()
         {
-            var result = new Nubbin().Render();
+            var joint = new PuzzleJoint();
+            var border = new Border(joint.Size);
+
+            var result = joint.Union(border).Render();
             _outputHelper.WriteLine(result);
         }
     }

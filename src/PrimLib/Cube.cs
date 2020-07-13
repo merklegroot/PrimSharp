@@ -2,10 +2,17 @@ using System;
 
 namespace PrimLib
 {
-    public class Cube : Prim, IHasSize
+    public class Cube : Prim, ISizedPrim
     {
-        public Cube() : this(1, 1, 1) { }
+        private const decimal DefaultWidth = 1;
+        private const decimal DefaultBreadth = 1;
+        private const decimal DefaultHeight = 1;
+
+        public Cube() : this(DefaultWidth, DefaultBreadth, DefaultHeight) { }
         public Cube(decimal[] size) : this(size[0], size[1], size[2]) { }
+
+        public Cube(decimal w, decimal b) : this(w, b, DefaultHeight) { }
+
         public Cube(decimal w, decimal b, decimal h) { Width = w; Breadth = b; Height = h; }
 
         public decimal[] Size { get; private set; } = new decimal[3];

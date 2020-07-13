@@ -1,48 +1,44 @@
-using System;
-using System.Collections.Generic;
-
 namespace PrimLib
 {
-    public class Bumper : Prim
+    public class Bumper : Prim, ISizedPrim
     {
-        private const decimal Width = 40;
+        private const decimal DefaultWidth = 85.0m;
+        private const decimal DefaultBreadth = 25.0m;
+        private const decimal DefaultHeight = 4.0m;
 
-        private const decimal Breadth = 20;
+        public Bumper() : this(DefaultBreadth) { }
 
-        private const decimal Height = 7.5m;
+        public Bumper(decimal breadth) { Breadth = breadth; }        
 
-        public Bumper() { }
+        public decimal Width { get; private set; } = DefaultWidth;
+
+        public decimal Breadth { get; private set; } = DefaultBreadth;
+
+        public decimal Height { get; private set; } = DefaultHeight;
+
+        public decimal[] Size => new decimal[] { Width, Breadth, Height };
 
         public override string Render()
         {
-            var box = new Box(Width, Breadth, Height);
-            var cutoutHost = new Cube(Width, new NubbinCutout().Breadth, Height);
+            var puzzleJoint = new PuzzleJoint(Height);
+            var puzzleJointCutout = new PuzzleJointCutout(Height);
 
-            IPrim result = box;
+            var distX = Width / 2 - 1.5m * puzzleJointCutout.Width;
 
-            result = result.Union(cutoutHost.Translate(0, Breadth / 2 + cutoutHost.Breadth / 2, 0));
+            var mainArea = new Cube(Width, Breadth, Height);
 
-            for (var i = 0; i < 4; i++)
-            {
-                var isLeft = i / 2 == 0;
-                var isTop = i % 2 == 0;
+            var puzzleCutoutHost = new Cube(Width, new PuzzleJointCutout().Breadth, Height);
 
-                var nubbin = GetRotatedTranslatedNubbin(box, isLeft, isTop);
-                result = isTop ? result.Subtract(nubbin) : result.Union(nubbin);
-            }
+            var hostWithCutouts = puzzleCutoutHost
+                .Subtract(puzzleJointCutout.TranslateY(-puzzleCutoutHost.Breadth / 2 + puzzleJointCutout.Breadth / 2).TranslateX(distX))
+                .Subtract(puzzleJointCutout.TranslateY(-puzzleCutoutHost.Breadth / 2 + puzzleJointCutout.Breadth / 2).TranslateX(-distX))
+                .ManuallySize(puzzleCutoutHost.Size);
 
-            return result.Render();
-        }
-
-        private IPrim GetRotatedTranslatedNubbin(IHasSize box, bool isLeft, bool isTop)
-        {
-            var nub = isTop ? new NubbinCutout(box.Height) : new Nubbin(box.Height);
-
-            return nub.RotateZ(180) //(!isTop ? nub.RotateZ(180) : (IPrim)nub)
-                .Translate(
-                    (isLeft ? 1 : -1) * (-box.Width / 2 + 1.5m * nub.Width),
-                    (isTop ? 1 : -1) * (box.Breadth / 2 + nub.Breadth / 4 + (!isTop ? 0 : (new NubbinCutout().Breadth/2))),
-                    0);
+            return mainArea
+                .Union(hostWithCutouts.TranslateY(-(mainArea.Breadth / 2 + hostWithCutouts.Breadth / 2)))
+                .Union(puzzleJoint.TranslateY(mainArea.Breadth / 2 + puzzleJoint.Breadth / 2).TranslateX(distX))
+                .Union(puzzleJoint.TranslateY(mainArea.Breadth / 2 + puzzleJoint.Breadth / 2).TranslateX(-distX))
+                .Render();
         }
     }
 }

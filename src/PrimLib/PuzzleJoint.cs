@@ -1,14 +1,14 @@
 namespace PrimLib
 {
-    public class Nubbin : Prim, IHasSize
+    public class PuzzleJoint : Prim, ISize
     {
         private const decimal DefaultHeight = 1;
 
-        private const decimal DefaultRadius = 1.0m;
+        private const decimal DefaultRadius = 1.5m;
 
         protected virtual decimal Radius => DefaultRadius;
 
-        protected virtual decimal JoinerLength => 1.5m * Radius;
+        protected virtual decimal JoinerLength => 1.55m * Radius; // 1.6m * Radius;
 
         protected virtual decimal JoinerThickness => Radius;
 
@@ -24,12 +24,16 @@ namespace PrimLib
 
         private Cylinder Pip => new Cylinder(Radius, Height);
 
-        public Nubbin Clone() => CloneAs<Nubbin>();
+        public PuzzleJoint Clone() => CloneAs<PuzzleJoint>();
 
-        public Nubbin() : this(DefaultHeight) { }
+        public PuzzleJoint() : this(DefaultHeight) { }
 
-        public Nubbin(decimal height) { Height = height; }
+        public PuzzleJoint(decimal height) => Height = height;
 
-        public override string Render() => Arm.Union(Pip.Translate(0, JoinerLength / 2, 0)).Render();
+        public override string Render() =>
+            Arm.TranslateY(JoinerLength / 2)
+            .Union(Pip.TranslateY(JoinerLength))
+            .TranslateY(-Breadth / 2)
+            .Render();
     }
 }

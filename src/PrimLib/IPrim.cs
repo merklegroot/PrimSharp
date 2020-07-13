@@ -10,6 +10,12 @@ namespace PrimLib
 
         IPrim Translate(decimal x, decimal y, decimal z);
 
+        IPrim TranslateX(decimal offset);
+
+        IPrim TranslateY(decimal offset);
+
+        IPrim TranslateZ(decimal offset);
+
         IPrim Translate(decimal[] offset);
 
         IRotation RotateX(decimal angle);

@@ -12,6 +12,12 @@ namespace PrimLib
         public IPrim Translate(decimal[] offset) =>
             new Translation(this, offset);
 
+        public IPrim TranslateX(decimal offset) => Translate(offset, 0, 0);
+
+        public IPrim TranslateY(decimal offset) => Translate(0, offset, 0);
+
+        public IPrim TranslateZ(decimal offset) => Translate(0, 0, offset);
+
         protected TSelf CloneAs<TSelf>() => JsonConvert.DeserializeObject<TSelf>(JsonConvert.SerializeObject(this));
 
         public override string ToString() => Render();

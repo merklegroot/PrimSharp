@@ -1,14 +1,30 @@
 namespace PrimLib
 {
-    public class Box : Cube
+    /// <summary>
+    /// A hollow box with a bottom but no top.
+    /// </summary>
+    public class Box : Cube, ISizedPrim
     {
+        private const decimal DefaultWallThickness = 1;
+        private const decimal DefaultFloorThickness = 1;
+
         public Box() : this(1, 1, 1) { }
+
         public Box(decimal[] size) : this(size[0], size[1], size[2]) { }
-        public Box(decimal w, decimal b, decimal h) { Width = w; Breadth = b; Height = h; }
 
-        public decimal WallThickness { get; set; } = 1;
+        public Box(decimal w, decimal b, decimal h) : this(w, b, h, DefaultWallThickness, DefaultFloorThickness) { }
 
-        public decimal FloorThickness { get; set; } = 1;
+        public Box(decimal w, decimal b, decimal h, decimal wallThickness, decimal floorThickness)
+        {
+            Width = w; Breadth = b; Height = h;
+
+            WallThickness = wallThickness;
+            FloorThickness = floorThickness;
+        }
+
+        public decimal WallThickness { get; set; } = DefaultWallThickness;
+
+        public decimal FloorThickness { get; set; } = DefaultFloorThickness;
 
         public override string Render() =>
             CloneAs<Cube>().Subtract(GenerateCutout()).Render();   

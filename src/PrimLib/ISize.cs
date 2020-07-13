@@ -1,6 +1,6 @@
 ﻿namespace PrimLib
 {
-    public interface IHasSize
+    public interface ISize
     {
         decimal Width { get; }
 
