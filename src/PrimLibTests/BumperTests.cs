@@ -14,6 +14,6 @@ namespace PrimLibTests
 
         [Fact]
         public void Bumper_with_defaults() =>
-            _outputHelper.WriteLine(new Bumper(85, 40, 10).Render());        
+            _outputHelper.WriteLine(new Bumper().Render());        
     }
 }
