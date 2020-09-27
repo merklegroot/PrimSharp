@@ -2,27 +2,30 @@
 
 namespace PrimDesignLib
 {
+    /// <summary>
+    /// Fits a small on/off switch.
+    /// </summary>
     public class SwitchContainer : Prim, ISizedPrim
     {
-        private const decimal WallThickness = 2.5m;
-        private const decimal FloorThickness = 4.0m;
+        private Cube TopperCutout = new Cube(13.5m, 9.7m, 2.0m);
 
-        private decimal CutoutWidth = 13.5m;
-        private decimal CutoutBreadth = 9.7m;
-        private decimal CutoutHeight = 23.5m;
+        private const decimal TopperSpace = 3.5m;
 
-        public decimal Width => CutoutWidth + 2 * WallThickness;
-        public decimal Breadth => CutoutBreadth + 2 * WallThickness;
-        public decimal Height => CutoutHeight + FloorThickness;
+        private Box Topper => new Box(TopperCutout.Width + 2 * TopperSpace, TopperCutout.Breadth + 2 * TopperSpace, TopperCutout.Height, TopperSpace, 0);
 
-        public decimal[] Size => new decimal[] { Width, Breadth, Height };
+        private Arch WireCutoutA => new Arch(width: 5.0m, breadth: Topper.Breadth, height: 7.5m);
+        private Arch WireCutoutB => new Arch(width: 5.0m, breadth: Topper.Width, height: 7.5m);
 
-        public override string Render()
-        {
-            var box = new Box(Width, Breadth, Height, WallThickness, FloorThickness);
-            var sideCuotut = new Cube(Width - 4 * WallThickness, Breadth, Height - FloorThickness);
+        private const decimal WallThickness = 2.0m;
+        public decimal Width => Topper.Width;
+        public decimal Breadth => Topper.Breadth;
+        public decimal Height => 19.0m;
 
-            return box.Subtract(sideCuotut.TranslateZ(FloorThickness/2)).Render();
-        }
+        public override string Render() =>
+            new Box(Topper.Width, Topper.Breadth, Height, WallThickness, 0)                
+                .Union(Topper.TranslateZ(Height / 2 - Topper.Height / 2))
+                .Subtract(WireCutoutA.TranslateZ(-Height / 2 + WireCutoutA.Height / 2))
+                .Subtract(WireCutoutB.RotateZ(90).TranslateZ(-Height / 2 + WireCutoutB.Height / 2))
+                .Render();
     }
 }

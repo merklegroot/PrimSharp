@@ -8,6 +8,6 @@
 
         decimal Height { get; }
 
-        decimal[] Size { get; }
+        decimal[] Size => new decimal[] { Width, Breadth, Height };
     }
 }

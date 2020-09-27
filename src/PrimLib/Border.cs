@@ -18,8 +18,6 @@ namespace PrimLib
         public decimal Breadth { get; set; }
         public decimal Height { get; set; }
 
-        public decimal[] Size => new decimal[3] { Width, Breadth, Height };
-
         public decimal WallThickness { get; set; }
 
         public override string Render() =>

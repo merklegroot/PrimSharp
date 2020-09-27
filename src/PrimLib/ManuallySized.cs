@@ -16,8 +16,6 @@
 
         public decimal Height { get; private set; }
 
-        public decimal[] Size => new decimal[] { Width, Breadth, Height };
-
         public override string Render() => _prim.Render();
     }
 }

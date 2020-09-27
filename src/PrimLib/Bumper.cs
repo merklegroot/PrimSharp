@@ -18,8 +18,6 @@ namespace PrimLib
 
         public decimal Height { get; private set; } = DefaultHeight;
 
-        public decimal[] Size => new decimal[] { Width, Breadth, Height };
-
         public override string Render()
         {
             var puzzleJoint = new PuzzleJoint(JointHeight);

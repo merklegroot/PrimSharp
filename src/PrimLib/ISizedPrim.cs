@@ -1,4 +1,6 @@
 ﻿namespace PrimLib
 {
-    public interface ISizedPrim : IPrim, ISize { }
+    public interface ISizedPrim : IPrim, ISize
+    { 
+    }
 }

@@ -11,9 +11,9 @@ namespace PrimLib
         public Cube() : this(DefaultWidth, DefaultBreadth, DefaultHeight) { }
         public Cube(decimal[] size) : this(size[0], size[1], size[2]) { }
 
-        public Cube(decimal w, decimal b) : this(w, b, DefaultHeight) { }
+        public Cube(decimal width, decimal breadth) : this(width, breadth, DefaultHeight) { }
 
-        public Cube(decimal w, decimal b, decimal h) { Width = w; Breadth = b; Height = h; }
+        public Cube(decimal width, decimal breadth, decimal height) { Width = width; Breadth = breadth; Height = height; }
 
         public decimal[] Size { get; private set; } = new decimal[3];
         public decimal Width { get => Size[0]; set => Size[0] = value; }

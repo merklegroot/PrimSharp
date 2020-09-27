@@ -12,11 +12,11 @@ namespace PrimLib
 
         public Box(decimal[] size) : this(size[0], size[1], size[2]) { }
 
-        public Box(decimal w, decimal b, decimal h) : this(w, b, h, DefaultWallThickness, DefaultFloorThickness) { }
+        public Box(decimal width, decimal breadth, decimal height) : this(width, breadth, height, DefaultWallThickness, DefaultFloorThickness) { }
 
-        public Box(decimal w, decimal b, decimal h, decimal wallThickness, decimal floorThickness)
+        public Box(decimal width, decimal breadth, decimal height, decimal wallThickness, decimal floorThickness)
         {
-            Width = w; Breadth = b; Height = h;
+            Width = width; Breadth = breadth; Height = height;
 
             WallThickness = wallThickness;
             FloorThickness = floorThickness;
