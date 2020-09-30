@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualStudio.TestPlatform.ObjectModel;
-using PrimLib;
+﻿using PrimLib;
 using Xunit;
 using Xunit.Abstractions;
 

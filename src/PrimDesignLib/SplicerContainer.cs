@@ -11,10 +11,10 @@ namespace PrimDesignLib
         private const decimal WallThickness = 1.0m;
 
         public decimal Width => 20 + 2 * WallThickness;
-        public decimal Breadth => 17.40m + 2 * WallThickness;        
-        public decimal Height => UpperHeight + FloorThickness;
 
-        public decimal[] Size => new decimal[] { Width, Breadth, Height };
+        public decimal Breadth => 17.40m + 2 * WallThickness;
+
+        public decimal Height => UpperHeight + FloorThickness;
 
         private const decimal HorizontalStabilizerBreadth = 2.5m;
         private const decimal HorizontalStabilizerHeight = LowerHeight;

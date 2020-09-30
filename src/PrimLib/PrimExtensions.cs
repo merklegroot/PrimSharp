@@ -30,7 +30,5 @@ namespace PrimLib
 
             return result.ManuallySize(size);
         }
-
-
     }
 }
