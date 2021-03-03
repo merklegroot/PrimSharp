@@ -1,6 +1,6 @@
 using System;
 
-namespace PrimLib
+namespace PrimLib.Extensions
 {
     public static class DumpExtension
     {

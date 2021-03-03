@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-
-namespace PrimLib
+﻿namespace PrimLib.Extensions
 {
     public static class PrimExtensions
     {
@@ -11,7 +8,7 @@ namespace PrimLib
         public static ManuallySized ManuallySize(this IPrim prim, decimal width, decimal breadth, decimal height)
             => new ManuallySized(prim, width, breadth, height);
 
-        public static IPrim Stack(this ISizedPrim a, ISizedPrim b, int axis = 2, bool dontRecenter = false)
+        public static ManuallySized Stack(this ISizedPrim a, ISizedPrim b, int axis = 2, bool dontRecenter = false)
         {
             var vector = new decimal[3];
             vector[axis] = a.Size[axis] / 2 + b.Size[axis] / 2;

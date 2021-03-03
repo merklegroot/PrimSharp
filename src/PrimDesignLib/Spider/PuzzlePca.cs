@@ -1,4 +1,5 @@
 ﻿using PrimLib;
+using PrimLib.Extensions;
 
 namespace PrimDesignLib
 {

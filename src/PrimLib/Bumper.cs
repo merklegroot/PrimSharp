@@ -1,3 +1,5 @@
+using PrimLib.Extensions;
+
 namespace PrimLib
 {
     public class Bumper : Prim, ISizedPrim

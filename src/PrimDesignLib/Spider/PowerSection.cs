@@ -1,4 +1,5 @@
 ﻿using PrimLib;
+using PrimLib.Extensions;
 using System;
 
 namespace PrimDesignLib.Spider
@@ -9,30 +10,33 @@ namespace PrimDesignLib.Spider
         {
             var sizeableSwitchContainer = new SwitchContainer();
 
-            var switchContainer = new SwitchContainer().RotateX(90).ManuallySize(sizeableSwitchContainer.Width, sizeableSwitchContainer.Height, sizeableSwitchContainer.Breadth);
+            // width stays the same, height and breadth swap
+            // w, h, b
+            // then
+            // height stays the same, width and breadth swap
+            // h, w, b
+            var switchContainer = new SwitchContainer().RotateX(90).RotateZ(-90)
+                .ManuallySize(sizeableSwitchContainer.Height, sizeableSwitchContainer.Width, sizeableSwitchContainer.Breadth);
+
             var splicerContainer = new SplicerContainer();
 
+            var floorThickness = 1.0m;
             var distBetweenContainers = 10.0m;
 
-            var fullWidth = switchContainer.Width + splicerContainer.Width + distBetweenContainers;
-            var fullBreadth = Math.Max(switchContainer.Breadth, splicerContainer.Breadth);
-            var fullHeight = Math.Max(switchContainer.Height, splicerContainer.Height);
+            var sizeX = switchContainer.Width + splicerContainer.Width + distBetweenContainers;
 
-            var floorThickness = 1.0m;
+            var sizeY = Math.Max(switchContainer.Breadth, splicerContainer.Breadth);
+            var sizeZ = Math.Max(switchContainer.Height, splicerContainer.Height);
 
-            var floor = new Cube(fullWidth, fullBreadth, floorThickness);
+            var floor = new Cube(sizeX, sizeY + 10, floorThickness);
 
-            return switchContainer
-                .TranslateZ(switchContainer.Height / 2)
-                .TranslateX(-switchContainer.Width / 2 - distBetweenContainers / 2)
-                .TranslateY(switchContainer.Breadth /2)
-                .Union(
-                    splicerContainer
-                    .TranslateZ(splicerContainer.Height / 2)
-                    .TranslateX(splicerContainer.Width / 2 + 2 / distBetweenContainers)
-                    .TranslateY(splicerContainer.Breadth / 2)
-                )
-                .Union(floor)
+            return floor
+                .Union(switchContainer
+                    .TranslateX(switchContainer.Width / 2 - floor.Width / 2)
+                    .TranslateZ(switchContainer.Height / 2 - floor.Height / 2))
+                .Union(splicerContainer
+                    .TranslateX(floor.Width / 2 - splicerContainer.Width / 2)
+                    .TranslateZ(splicerContainer.Height / 2 - floor.Height / 2))
                 .Render();
         }
     }
