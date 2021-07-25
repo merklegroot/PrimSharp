@@ -9,9 +9,9 @@ namespace PrimLib
         private const int DefaultResolution = 100;
 
         public Cylinder() : this(DefaultRadius, DefaultHeight) { }
-        public Cylinder(decimal r) : this(r, DefaultHeight) { }
+        public Cylinder(decimal radius) : this(radius, DefaultHeight) { }
 
-        public Cylinder(decimal r, decimal h) { Radius = r; Height = h; }
+        public Cylinder(decimal radius, decimal height) { Radius = radius; Height = height; }
 
         // public decimal[] Size { get; private set; } = new decimal[2];
 

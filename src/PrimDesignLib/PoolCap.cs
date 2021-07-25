@@ -18,10 +18,10 @@ namespace PrimDesignLib
 
         public override string Render()
         {
-            var cap = new Cylinder(r: CapRadius, h: CapHeight);
-            var main = new Cylinder(r: MainRadius, h: MainHeight);
+            var cap = new Cylinder(radius: CapRadius, height: CapHeight);
+            var main = new Cylinder(radius: MainRadius, height: MainHeight);
             var slip = new TruncatedCone(r1: MainRadius, r2: SlipMinorRadius, h: SlipHeight);
-            var centerCut = new Cylinder(r: CenterCutRadius, h: MainHeight + SlipHeight);
+            var centerCut = new Cylinder(radius: CenterCutRadius, height: MainHeight + SlipHeight);
 
             return cap
                 .Union(main.TranslateZ(cap.Height / 2 + main.Height / 2))
