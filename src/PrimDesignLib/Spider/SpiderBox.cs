@@ -6,7 +6,7 @@ namespace PrimDesignLib.Spider
     /// A simple box to fit stuff inside the spider.
     /// This is a temporary solution.
     /// </summary>
-    public class SpiderBox : Prim, ISizedPrim
+    public record SpiderBox : Prim, ISizedPrim
     {
         private const decimal WallThickness = 1.5m;
         private const decimal FloorThickness = 1.5m;

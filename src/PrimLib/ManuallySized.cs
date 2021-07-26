@@ -1,6 +1,6 @@
 ﻿namespace PrimLib
 {
-    public class ManuallySized : Prim, ISizedPrim
+    public record ManuallySized : Prim, ISizedPrim
     {
         private readonly IPrim _prim;
 

@@ -2,7 +2,7 @@
 
 namespace PrimLib
 {
-    public class Rotation : Prim, IRotation
+    public record Rotation : Prim, IRotation
     {
         private readonly IPrim _prim;
 

@@ -5,7 +5,7 @@ namespace PrimDesignLib
     /// <summary>
     /// Fits a small on/off switch.
     /// </summary>
-    public class SwitchContainer : Prim, ISizedPrim
+    public record SwitchContainer : Prim, ISizedPrim
     {
         private Cube TopperCutout = new Cube(13.5m, 9.7m, 2.0m);
 

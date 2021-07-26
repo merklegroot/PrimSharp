@@ -2,7 +2,7 @@ using PrimLib.Extensions;
 
 namespace PrimLib
 {
-    public class Bumper : Prim, ISizedPrim
+    public record Bumper : Prim, ISizedPrim
     {
         private const decimal DefaultWidth = 85.0m;
         private const decimal DefaultBreadth = 25.0m;

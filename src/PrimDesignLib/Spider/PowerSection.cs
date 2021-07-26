@@ -4,7 +4,7 @@ using System;
 
 namespace PrimDesignLib.Spider
 {
-    public class PowerSection : Prim
+    public record PowerSection : Prim
     {
         public override string Render()
         {

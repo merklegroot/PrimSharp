@@ -3,10 +3,14 @@ namespace PrimLib
     /// <summary>
     /// A hollow box with a bottom but no top.
     /// </summary>
-    public class Box : Cube, ISizedPrim
+    public record Box : Cube
     {
         private const decimal DefaultWallThickness = 1;
         private const decimal DefaultFloorThickness = 1;
+
+        public decimal WallThickness { get; init; } = DefaultWallThickness;
+
+        public decimal FloorThickness { get; init; } = DefaultFloorThickness;
 
         public Box() : this(1, 1, 1) { }
 
@@ -15,24 +19,24 @@ namespace PrimLib
         public Box(decimal width, decimal breadth, decimal height) : this(width, breadth, height, DefaultWallThickness, DefaultFloorThickness) { }
 
         public Box(decimal width, decimal breadth, decimal height, decimal wallThickness, decimal floorThickness)
+            : base(width, breadth, height)
         {
-            Width = width; Breadth = breadth; Height = height;
-
             WallThickness = wallThickness;
             FloorThickness = floorThickness;
         }
 
-        public decimal WallThickness { get; set; } = DefaultWallThickness;
+        private Cube GenerateCutout() =>
+            new Cube(Width - 2 * WallThickness, Breadth - 2 * WallThickness, Height - FloorThickness);
 
-        public decimal FloorThickness { get; set; } = DefaultFloorThickness;
-
-        public override string Render() =>
-            CloneAs<Cube>().Subtract(GenerateCutout()).Render();   
-
-        private IPrim GenerateCutout()
+        public override string Render()
         {
-            var cutout = new Cube(Width - 2 * WallThickness, Breadth - 2 * WallThickness, Height - FloorThickness);
-            return cutout.Translate(0, 0, Height / 2 - cutout.Height / 2);
+            var outer = CloneAs<Cube>();
+            var inner = GenerateCutout();
+
+            return (!inner.IsEmpty                
+                ? outer.Subtract(inner.TranslateZ(FloorThickness / 2))
+                : outer)
+                .Render();
         }
     }
 }

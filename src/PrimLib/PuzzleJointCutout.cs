@@ -1,6 +1,6 @@
 ﻿namespace PrimLib
 {
-    public class PuzzleJointCutout : PuzzleJoint
+    public record PuzzleJointCutout : PuzzleJoint
     {
         public PuzzleJointCutout() { }
 

@@ -2,7 +2,7 @@
 
 namespace PrimDesignLib
 {
-    public class SplicerContainer : Prim, ISizedPrim
+    public record SplicerContainer : Prim, ISizedPrim
     {
         private const decimal LowerHeight = 2.4m;
         private const decimal UpperHeight = 8.0m;

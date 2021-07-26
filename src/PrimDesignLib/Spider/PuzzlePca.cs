@@ -3,7 +3,7 @@ using PrimLib.Extensions;
 
 namespace PrimDesignLib
 {
-    public class PuzzlePca : Prim
+    public record PuzzlePca : Prim
     {
         public override string Render()
         {

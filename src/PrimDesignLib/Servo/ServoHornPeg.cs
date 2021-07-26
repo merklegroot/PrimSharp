@@ -3,7 +3,7 @@ using PrimLib;
 
 namespace PrimDesignLib.Servo
 {
-    public class ServoHornPeg : Prim
+    public record ServoHornPeg : Prim
     {
         // public ServoHornPeg() : base(3.6m, 4.2m, 2.1m) { }
         public override string Render()

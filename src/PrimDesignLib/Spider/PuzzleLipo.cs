@@ -2,7 +2,7 @@
 
 namespace PrimDesignLib
 {
-    public class PuzzleLipo : Prim
+    public record PuzzleLipo : Prim
     {
         public override string Render()
         {

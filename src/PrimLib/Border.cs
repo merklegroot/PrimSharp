@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PrimLib
+﻿namespace PrimLib
 {
-    public class Border : Prim, ISizedPrim
+    public record Border : Prim, ISizedPrim
     {
         private const decimal DefaultWallThickness = 1;
 
@@ -14,16 +10,15 @@ namespace PrimLib
 
         public Border(decimal w, decimal b, decimal h, decimal wallThickness) { Width = w; Breadth = b; Height = h; WallThickness = wallThickness; }
 
-        public decimal Width { get; set; }
-        public decimal Breadth { get; set; }
-        public decimal Height { get; set; }
+        public decimal Width { get; init; }
+        public decimal Breadth { get; init; }
+        public decimal Height { get; init; }
 
-        public decimal WallThickness { get; set; }
+        public decimal WallThickness { get; init; }
 
         public override string Render() =>
             CloneAs<Cube>().Subtract(GenerateCutout()).Render();
 
         private IPrim GenerateCutout() => new Cube(Width - 2 * WallThickness, Breadth - 2 * WallThickness, Height);
-
     }
 }

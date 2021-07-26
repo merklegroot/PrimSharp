@@ -6,7 +6,7 @@ namespace PrimDesignLib
     /// Cap to plug the air for the inflatable pool.
     /// The hole is 15mm.
     /// </summary>
-    public class PoolCap : Prim
+    public record PoolCap : Prim
     {
         const decimal MainRadius = 15.0m;
         const decimal CapRadius = MainRadius + 2.5m;

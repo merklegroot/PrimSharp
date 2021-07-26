@@ -3,7 +3,7 @@ using System;
 
 namespace PrimDesignLib.Servo
 {
-    public class ServoHorn : Prim
+    public record ServoHorn : Prim
     {
         /*
             var hornDim = function () {

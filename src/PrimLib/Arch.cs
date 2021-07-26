@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Text;
-
-namespace PrimLib
+﻿namespace PrimLib
 {
-    public class Arch : Prim, ISizedPrim
+    public record Arch : Prim, ISizedPrim
     {
         public Arch(decimal width = 1, decimal breadth = 1, decimal height = 1)
         {

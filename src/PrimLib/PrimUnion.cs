@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace PrimLib
 {
-    public class PrimUnion : Prim
+    public record PrimUnion : Prim
     {
         private readonly IPrim _a;
         private readonly IPrim _b;

@@ -1,6 +1,6 @@
 namespace PrimLib
 {
-    public class PuzzleJoint : Prim, ISize
+    public record PuzzleJoint : Prim, ISize
     {
         private const decimal DefaultHeight = 1;
 
@@ -12,7 +12,7 @@ namespace PrimLib
 
         protected virtual decimal JoinerThickness => Radius;
 
-        public decimal Height { get; set; } = DefaultHeight;
+        public decimal Height { get; init; } = DefaultHeight;
 
         public decimal Width => 2 * Radius;
 
@@ -24,7 +24,7 @@ namespace PrimLib
 
         private Cylinder Pip => new Cylinder(Radius, Height);
 
-        public PuzzleJoint Clone() => CloneAs<PuzzleJoint>();
+        // public PuzzleJoint Clone() => CloneAs<PuzzleJoint>();
 
         public PuzzleJoint() : this(DefaultHeight) { }
 

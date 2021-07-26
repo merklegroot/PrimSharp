@@ -3,7 +3,7 @@ using System;
 
 namespace PrimDesignLib
 {
-    public class BatteryBumper : Prim, ISizedPrim
+    public record BatteryBumper : Prim, ISizedPrim
     {
         private static class BatteryDim
         {

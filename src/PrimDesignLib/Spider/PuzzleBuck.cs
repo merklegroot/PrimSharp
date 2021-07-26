@@ -2,7 +2,7 @@
 
 namespace PrimDesignLib
 {
-    public class PuzzleBuck : Prim
+    public record PuzzleBuck : Prim
     {
         public override string Render()
         {

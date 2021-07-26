@@ -2,7 +2,7 @@
 
 namespace PrimLib
 {
-    public class Translation : Prim, ITranslation
+    public record Translation : Prim, ITranslation
     {
         private readonly IPrim _prim;
 

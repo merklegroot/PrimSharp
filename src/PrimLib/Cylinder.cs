@@ -1,6 +1,6 @@
 namespace PrimLib
 {
-    public class Cylinder : Prim
+    public record Cylinder : Prim
     {
         private const decimal DefaultRadius = 0.5m;
 
@@ -15,13 +15,13 @@ namespace PrimLib
 
         // public decimal[] Size { get; private set; } = new decimal[2];
 
-        public decimal Radius { get; set; }
+        public decimal Radius { get; init; }
         
-        public decimal Height { get; set; }
+        public decimal Height { get; init; }
 
-        public int Resolution { get; set; } = DefaultResolution;
+        public int Resolution { get; init; } = DefaultResolution;
 
-        public Cylinder Clone() => CloneAs<Cylinder>();
+        // public Cylinder Clone() => CloneAs<Cylinder>();
 
         public override string Render() => $"cylinder({{r: {Radius}, h: {Height}, center: true, fn: {Resolution}}})";
     }

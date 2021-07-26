@@ -2,7 +2,7 @@
 
 namespace PrimDesignLib
 {
-    public class PuzzleNano : Prim
+    public record PuzzleNano : Prim
     {
         public override string Render()
         {

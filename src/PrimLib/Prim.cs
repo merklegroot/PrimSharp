@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace PrimLib
 {
-    public abstract class Prim : IPrim
+    public abstract record Prim : IPrim
     {
         public virtual IPrim Union(IPrim b) => new PrimUnion(this, b);
         public virtual IPrim Subtract(IPrim b) => new PrimSubtraction(this, b);
