@@ -15,7 +15,7 @@
         public decimal Breadth { get; private set; }
 
         public decimal Height { get; private set; }
-
+        
         public override string Render() => _prim.Render();
     }
 }

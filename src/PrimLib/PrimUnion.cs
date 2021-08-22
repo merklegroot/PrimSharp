@@ -9,6 +9,7 @@ namespace PrimLib
 
         public PrimUnion(IPrim a, IPrim b) { _a = a; _b = b; }
 
-        public override string Render() => $"{_a.Render()}.union({_b.Render()})";
+        public override string Render() =>
+            $"union() {{ {_a.Render()} {_b.Render()} }}";
     }
 }

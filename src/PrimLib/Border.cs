@@ -16,8 +16,9 @@
 
         public decimal WallThickness { get; init; }
 
-        public override string Render() =>
-            CloneAs<Cube>().Subtract(GenerateCutout()).Render();
+        private IPrim Shape => CloneAs<Cube>().Subtract(GenerateCutout());
+
+        public override string Render() => Shape.Render();
 
         private IPrim GenerateCutout() => new Cube(Width - 2 * WallThickness, Breadth - 2 * WallThickness, Height);
     }

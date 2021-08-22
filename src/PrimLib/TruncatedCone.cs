@@ -20,8 +20,7 @@ namespace PrimLib
 
         public int Resolution { get; init; } = DefaultResolution;
 
-        // public TruncatedCone Clone() => CloneAs<TruncatedCone>();
-
-        public override string Render() => $"cylinder({{r1: {R1}, r2: {R2}, h: {Height}, center: true, fn: {Resolution}}})";
+        public override string Render() =>
+            $"cylinder({{r1={R1}, r2={R2}, h={Height}, center=true, $fn={Resolution}}})";
     }
 }

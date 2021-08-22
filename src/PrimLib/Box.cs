@@ -28,15 +28,19 @@ namespace PrimLib
         private Cube GenerateCutout() =>
             new Cube(Width - 2 * WallThickness, Breadth - 2 * WallThickness, Height - FloorThickness);
 
-        public override string Render()
+        private IPrim Shape
         {
-            var outer = CloneAs<Cube>();
-            var inner = GenerateCutout();
+            get
+            {
+                var outer = CloneAs<Cube>();
+                var inner = GenerateCutout();
 
-            return (!inner.IsEmpty                
-                ? outer.Subtract(inner.TranslateZ(FloorThickness / 2))
-                : outer)
-                .Render();
+                return (!inner.IsEmpty
+                    ? outer.Subtract(inner.TranslateZ(FloorThickness / 2))
+                    : outer);
+            }
         }
+        
+        public override string Render() => Shape.Render();
     }
 }

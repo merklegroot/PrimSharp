@@ -20,8 +20,10 @@ namespace PrimLib
 
         public decimal Height { get; private set; } = DefaultHeight;
 
-        public override string Render()
+        private IPrim Shape
         {
+            get
+            {
             var puzzleJoint = new PuzzleJoint(JointHeight);
             var puzzleJointCutout = new PuzzleJointCutout(JointHeight);
 
@@ -47,8 +49,10 @@ namespace PrimLib
                 .Union(jointCap.TranslateY(mainArea.Breadth / 2 - jointCap.Breadth / 2).TranslateX(distX).TranslateZ(jointCap.Height / 2 - Height / 2))
                 .Union(puzzleJoint.TranslateY(mainArea.Breadth / 2 + puzzleJoint.Breadth / 2).TranslateX(distX).TranslateZ(puzzleJoint.Height / 2 - Height / 2))
                 .Union(jointCap.TranslateY(mainArea.Breadth / 2 - jointCap.Breadth / 2).TranslateX(-distX).TranslateZ(jointCap.Height / 2 - Height / 2))
-                .Union(puzzleJoint.TranslateY(mainArea.Breadth / 2 + puzzleJoint.Breadth / 2).TranslateX(-distX).TranslateZ(puzzleJoint.Height / 2 - Height / 2))                
-                .Render();
+                .Union(puzzleJoint.TranslateY(mainArea.Breadth / 2 + puzzleJoint.Breadth / 2).TranslateX(-distX).TranslateZ(puzzleJoint.Height / 2 - Height / 2));
+            }
         }
+
+        public override string Render() => Shape.Render();
     }
 }

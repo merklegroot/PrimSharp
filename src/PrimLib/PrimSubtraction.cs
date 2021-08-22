@@ -9,6 +9,7 @@ namespace PrimLib
 
         public PrimSubtraction(IPrim a, IPrim b) { _a = a; _b = b; }
 
-        public override string Render() => $"{_a.Render()}.subtract({_b.Render()})";
+        public override string Render() =>
+            $"subtract() {{ {_a.Render()} {_b.Render()} }}";
     }
 }

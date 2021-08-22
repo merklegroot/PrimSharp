@@ -16,8 +16,9 @@ namespace PrimLib
 
         public override string Render() =>
             new StringBuilder()
-            .Append(_prim.Render())
-            .Append($".translate([{Offset[0]}, {Offset[1]}, {Offset[2]}])")
-            .ToString();
+                .AppendLine($"translate([{Offset[0]}, {Offset[1]}, {Offset[2]}]) {{")
+                .AppendLine(_prim.Render())
+                .AppendLine("}")
+                .ToString();
     }
 }

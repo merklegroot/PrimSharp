@@ -15,15 +15,17 @@
 
         public decimal Height { get; }
 
-        public override string Render()
+
+        private IPrim Shape()
         {
             var cylinder = new Cylinder(Width / 2, Breadth);
             var cube = new Cube(Width, Breadth, Height - Width / 2);
 
             return cube.Union(
                 cylinder.RotateX(90).TranslateZ(cube.Height / 2))
-                .TranslateZ(cube.Height / 2 - Height / 2)
-                .Render();
+                .TranslateZ(cube.Height / 2 - Height / 2);
         }
+
+        public override string Render() => Shape().Render();
     }
 }

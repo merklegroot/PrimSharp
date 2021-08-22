@@ -8,7 +8,7 @@ namespace PrimLib
 
         protected virtual decimal Radius => DefaultRadius;
 
-        protected virtual decimal JoinerLength => 1.55m * Radius; // 1.6m * Radius;
+        protected virtual decimal JoinerLength => 1.55m * Radius;
 
         protected virtual decimal JoinerThickness => Radius;
 
@@ -30,10 +30,11 @@ namespace PrimLib
 
         public PuzzleJoint(decimal height) => Height = height;
 
-        public override string Render() =>
+        private IPrim Shape =>
             Arm.TranslateY(JoinerLength / 2)
-            .Union(Pip.TranslateY(JoinerLength))
-            .TranslateY(-Breadth / 2)
-            .Render();
+                .Union(Pip.TranslateY(JoinerLength))
+                .TranslateY(-Breadth / 2);
+
+        public override string Render() => Shape.Render();
     }
 }

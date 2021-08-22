@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Text;
 
 namespace PrimLib
 {
@@ -17,11 +18,23 @@ namespace PrimLib
 
         public decimal Angle { get; private set; }
 
-        public override string Render() => new StringBuilder()
-            .AppendLine(_prim.Render())
-            .AppendLine($".rotate{AxisName}({Angle})")
-            .ToString();
-
         private string AxisName => new string[] { "X", "Y", "Z" }[Axis];
+
+        public override string Render()
+        {
+            var commaSeparated =
+                string.Join(", ",
+                    new List<decimal>
+                    {
+                        Axis == 0 ? Angle : 0,
+                        Axis == 1 ? Angle : 0,
+                        Axis == 2 ? Angle : 0
+                    });
+
+            return new StringBuilder()
+                .AppendLine($"rotate([{commaSeparated}])")
+                .AppendLine(_prim.Render())
+                .ToString();
+        }
     }
 }

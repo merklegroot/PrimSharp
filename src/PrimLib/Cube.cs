@@ -41,6 +41,7 @@ namespace PrimLib
             return inner.Translate(0, 0, Height / 2 - inner.Height / 2);
         }
 
-        public override string Render() => $"cube({{size: [{Width}, {Breadth}, {Height}], center: true}})";
+        public override string Render() =>
+            $"cube([{Width}, {Breadth}, {Height}], center=true);{Environment.NewLine}";
     }
 }
