@@ -9,7 +9,7 @@ namespace PrimLib
 
         public IPrim Translate(decimal x, decimal y, decimal z) => Translate(new decimal[] {x, y, z});
 
-        public IPrim Translate(decimal[] offset) =>new Translation(this, offset);
+        public IPrim Translate(decimal[] offset) => new Translation(this, offset);
 
         public IPrim TranslateX(decimal offset) => Translate(offset, 0, 0);
 

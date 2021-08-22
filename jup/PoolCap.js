@@ -1,0 +1,1 @@
+const main = () => cylinder({r: 17.5, h: 2.0, center: true, fn: 100}).union(cylinder({r: 15.0, h: 4.0, center: true, fn: 100}).translate([0, 0, 3.0])).union(cylinder({r1: 15.0, r2: 14.0, h: 2.0, center: true, fn: 100}).translate([0, 0, 6.0])).subtract(cylinder({r: 12.0, h: 6.0, center: true, fn: 100}).translate([0, 0, 4.0]));
