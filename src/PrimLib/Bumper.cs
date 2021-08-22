@@ -6,7 +6,7 @@ namespace PrimLib
     {
         private const decimal DefaultWidth = 85.0m;
         private const decimal DefaultBreadth = 25.0m;
-        private const decimal DefaultHeight = 3.5m; // 5.0m;
+        private const decimal DefaultHeight = 3.5m;
 
         private const decimal JointHeight = 10.0m;
 
