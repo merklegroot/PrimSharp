@@ -1,9 +1,8 @@
-﻿using PrimLib;
-using System.Linq;
-using Xunit;
+﻿using Xunit;
 using Xunit.Abstractions;
+using PrimDesignLib;
 
-namespace PrimLibTests
+namespace PrimDesignLibTests
 {
     public class BumperTests
     {

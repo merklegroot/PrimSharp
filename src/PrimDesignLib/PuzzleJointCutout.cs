@@ -1,4 +1,4 @@
-﻿namespace PrimLib
+﻿namespace PrimDesignLib
 {
     public record PuzzleJointCutout : PuzzleJoint
     {

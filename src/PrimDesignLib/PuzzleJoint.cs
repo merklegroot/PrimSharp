@@ -1,4 +1,6 @@
-namespace PrimLib
+using PrimLib;
+
+namespace PrimDesignLib
 {
     public record PuzzleJoint : Prim, ISize
     {

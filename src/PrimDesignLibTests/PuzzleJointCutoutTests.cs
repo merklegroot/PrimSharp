@@ -1,8 +1,9 @@
-﻿using PrimLib;
+﻿using PrimDesignLib;
 using Xunit;
 using Xunit.Abstractions;
+using PrimLib;
 
-namespace PrimLibTests
+namespace PrimDesignLibTests
 {
     public class PuzzleJointCutoutTests
     {

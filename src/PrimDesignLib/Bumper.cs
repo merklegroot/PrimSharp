@@ -1,6 +1,7 @@
+using PrimLib;
 using PrimLib.Extensions;
 
-namespace PrimLib
+namespace PrimDesignLib
 {
     public record Bumper : Prim, ISizedPrim
     {
