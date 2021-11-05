@@ -1,7 +1,7 @@
 ﻿using PrimLib;
 using PrimLib.Extensions;
 
-namespace PrimDesignLib
+namespace PrimDesignLib.Spider
 {
     public record PuzzlePca : Prim
     {

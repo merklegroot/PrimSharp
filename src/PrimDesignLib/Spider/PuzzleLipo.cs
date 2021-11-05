@@ -1,6 +1,6 @@
 ﻿using PrimLib;
 
-namespace PrimDesignLib
+namespace PrimDesignLib.Spider
 {
     public record PuzzleLipo : Prim
     {

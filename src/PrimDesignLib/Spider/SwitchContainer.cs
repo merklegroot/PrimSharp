@@ -1,6 +1,6 @@
 ﻿using PrimLib;
 
-namespace PrimDesignLib
+namespace PrimDesignLib.Spider
 {
     /// <summary>
     /// Fits a small on/off switch.
