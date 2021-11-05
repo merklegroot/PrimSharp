@@ -1,4 +1,5 @@
 ﻿using PrimDesignLib;
+using PrimLib;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -12,5 +13,8 @@ namespace PrimDesignLibTests
 
         [Fact]
         public void Battery_container() => _outputHelper.WriteLine(new BatteryBumper().Render());
+
+        [Fact]
+        public void asdf() => _outputHelper.WriteLine(new Box(4, 4, 1).Subtract(new Box(2, 2, 1)).Render());
     }
 }

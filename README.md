@@ -49,4 +49,4 @@ new Cylinder(radius: 2, height: 5);
 new Box(4, 4, 1).Subtract(new Box(2, 2, 1));
 ```
 
-
+![alt text](img/SolidCutoutExample.png)
