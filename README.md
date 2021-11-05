@@ -5,6 +5,11 @@ A C# library for Constructive Solid Geometry
 Objects are rendered to OpenSCAD code.  
 You can paste the rendered code into OpenSCAD and use it to generate an STL file.  
 
+## OpenSCAD
+
+You can get OpenSCAD from here:  
+<https://openscad.org/>
+
 ## Notes
 
 Dimensions use Width, Breadth, and Height.
