@@ -1,5 +1,5 @@
-using PrimLib;
-using PrimLib.Extensions;
+using PrimSharp;
+using PrimSharp.Extensions;
 
 namespace PrimDesignLib
 {

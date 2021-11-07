@@ -1,7 +1,7 @@
 ﻿using PrimDesignLib;
 using Xunit;
 using Xunit.Abstractions;
-using PrimLib;
+using PrimSharp;
 
 namespace PrimDesignLibTests
 {

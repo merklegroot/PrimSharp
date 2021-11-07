@@ -1,5 +1,5 @@
 ﻿using System;
-using PrimLib;
+using PrimSharp;
 
 namespace PrimDesignLib.Servo
 {

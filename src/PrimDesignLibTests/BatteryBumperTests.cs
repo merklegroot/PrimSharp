@@ -1,5 +1,5 @@
 ﻿using PrimDesignLib;
-using PrimLib;
+using PrimSharp;
 using Xunit;
 using Xunit.Abstractions;
 

@@ -1,4 +1,4 @@
-using PrimLib;
+using PrimSharp;
 using PrimDesignLib;
 using Xunit;
 using Xunit.Abstractions;

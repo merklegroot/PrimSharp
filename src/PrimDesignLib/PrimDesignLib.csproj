@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PrimLib\PrimLib.csproj" />
+    <ProjectReference Include="..\PrimSharp\PrimSharp.csproj" />
   </ItemGroup>
 
 </Project>

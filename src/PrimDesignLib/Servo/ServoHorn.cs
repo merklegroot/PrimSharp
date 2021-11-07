@@ -1,4 +1,4 @@
-﻿using PrimLib;
+﻿using PrimSharp;
 using System;
 
 namespace PrimDesignLib.Servo

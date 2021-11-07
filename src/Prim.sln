@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimLib", "PrimLib\PrimLib.csproj", "{03A81F76-0A70-4F7F-B37F-4DFE84476CCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimSharp", "PrimSharp\PrimSharp.csproj", "{03A81F76-0A70-4F7F-B37F-4DFE84476CCB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimLibTests", "PrimLibTests\PrimLibTests.csproj", "{F2A2A099-E0C1-4A03-B1B8-DC0E943D584E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimSharpTests", "PrimSharpTests\PrimSharpTests.csproj", "{F2A2A099-E0C1-4A03-B1B8-DC0E943D584E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimDesignLib", "PrimDesignLib\PrimDesignLib.csproj", "{A7BDF97A-D655-40B8-9D2A-A34356935A2C}"
 EndProject
