@@ -13,6 +13,6 @@ namespace PrimDesignTests
 
         [Fact]
         public void Bumper_with_defaults() =>
-            _outputHelper.WriteLine(new Bumper().Render());        
+            _outputHelper.WriteLine(new Bumper().ToOpenScad());        
     }
 }

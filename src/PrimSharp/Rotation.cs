@@ -20,7 +20,7 @@ namespace PrimSharp
 
         private string AxisName => new string[] { "X", "Y", "Z" }[Axis];
 
-        public override string Render()
+        public override string ToOpenScad()
         {
             var commaSeparated =
                 string.Join(", ",
@@ -33,7 +33,7 @@ namespace PrimSharp
 
             return new StringBuilder()
                 .AppendLine($"rotate([{commaSeparated}])")
-                .AppendLine(_prim.Render())
+                .AppendLine(_prim.ToOpenScad())
                 .ToString();
         }
     }

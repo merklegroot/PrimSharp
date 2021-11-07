@@ -11,6 +11,6 @@ namespace PrimDesignTests
         public SwitchContainerTests(ITestOutputHelper outputHelper) => _outputHelper = outputHelper;
 
         [Fact]
-        public void Switch_container() => _outputHelper.WriteLine(new SwitchContainer().Render());
+        public void Switch_container() => _outputHelper.WriteLine(new SwitchContainer().ToOpenScad());
     }
 }

@@ -41,7 +41,7 @@ namespace PrimSharp
             return inner.Translate(0, 0, Height / 2 - inner.Height / 2);
         }
 
-        public override string Render() =>
+        public override string ToOpenScad() =>
             $"cube([{Width}, {Breadth}, {Height}], center=true);{Environment.NewLine}";
     }
 }

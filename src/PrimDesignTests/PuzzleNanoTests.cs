@@ -12,6 +12,6 @@ namespace PrimDesignTests
 
         [Fact]
         public void Puzzle_nano() =>
-            _outputHelper.WriteLine(new PuzzleNano().Render());
+            _outputHelper.WriteLine(new PuzzleNano().ToOpenScad());
     }
 }

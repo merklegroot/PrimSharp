@@ -20,7 +20,7 @@ namespace PrimDesignTests
             var joint = new PuzzleJoint();
             var border = new Border(joint.Size);
 
-            var result = joint.Union(border).Render();
+            var result = joint.Union(border).ToOpenScad();
             _outputHelper.WriteLine(result);
         }
     }

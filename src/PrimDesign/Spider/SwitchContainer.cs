@@ -21,11 +21,11 @@ namespace PrimDesign.Spider
         public decimal Breadth => Topper.Breadth;
         public decimal Height => 19.0m;
 
-        public override string Render() =>
+        public override string ToOpenScad() =>
             new Box(Topper.Width, Topper.Breadth, Height, WallThickness, 0)                
                 .Union(Topper.TranslateZ(Height / 2 - Topper.Height / 2))
                 .Subtract(WireCutoutA.TranslateZ(-Height / 2 + WireCutoutA.Height / 2))
                 .Subtract(WireCutoutB.RotateZ(90).TranslateZ(-Height / 2 + WireCutoutB.Height / 2))
-                .Render();
+                .ToOpenScad();
     }
 }

@@ -4,7 +4,7 @@ namespace PrimDesign.Spider
 {
     public record PuzzleNano : Prim
     {
-        public override string Render()
+        public override string ToOpenScad()
         {
             const decimal CutoutWidth = 55.0m;
             const decimal CutoutBreadth = 43.5m;
@@ -29,7 +29,7 @@ namespace PrimDesign.Spider
             return bumper.TranslateZ(bumper.Height / 2)
                 .Subtract(cubeCutout.TranslateZ(cubeCutout.Height / 2))
                 .Union(box.TranslateZ(box.Height / 2))
-                .Render();
+                .ToOpenScad();
         }
     }
 }

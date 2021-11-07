@@ -13,6 +13,6 @@ namespace PrimDesignTests.Connectors
 
         [Fact]
         public void Wago_container() =>
-            _outputHelper.WriteLine(new WagoContainer().Render());
+            _outputHelper.WriteLine(new WagoContainer().ToOpenScad());
     }
 }

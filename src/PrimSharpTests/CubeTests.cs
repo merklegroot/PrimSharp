@@ -14,7 +14,7 @@ namespace PrimSharpTests
         [Fact]
         public void Cube_with_defaults()
         {
-            _outputHelper.WriteLine(new Cube().Render());
+            _outputHelper.WriteLine(new Cube().ToOpenScad());
         }
 
         [Fact]
@@ -25,7 +25,7 @@ namespace PrimSharpTests
             rotation.Angle.ShouldBe(45);
             rotation.Axis.ShouldBe(2);
 
-            var result = rotation.Render();
+            var result = rotation.ToOpenScad();
             _outputHelper.WriteLine(result);
         }
 
@@ -35,7 +35,7 @@ namespace PrimSharpTests
             var a = new Cube();
             var b = new Cube();
 
-            _outputHelper.WriteLine(a.Subtract(b).Render());
+            _outputHelper.WriteLine(a.Subtract(b).ToOpenScad());
         }
     }
 }

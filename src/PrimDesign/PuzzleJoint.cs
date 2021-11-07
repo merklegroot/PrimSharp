@@ -37,6 +37,6 @@ namespace PrimDesign
                 .Union(Pip.TranslateY(JoinerLength))
                 .TranslateY(-Breadth / 2);
 
-        public override string Render() => Shape.Render();
+        public override string ToOpenScad() => Shape.ToOpenScad();
     }
 }

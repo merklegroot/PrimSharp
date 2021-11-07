@@ -26,6 +26,6 @@
                 .TranslateZ(cube.Height / 2 - Height / 2);
         }
 
-        public override string Render() => Shape().Render();
+        public override string ToOpenScad() => Shape().ToOpenScad();
     }
 }

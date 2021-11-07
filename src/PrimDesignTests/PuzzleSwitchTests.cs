@@ -12,6 +12,6 @@ namespace PrimDesignTests
 
         [Fact]
         public void Puzzle_switch() =>
-            _outputHelper.WriteLine(new PuzzleSwitch().Render());
+            _outputHelper.WriteLine(new PuzzleSwitch().ToOpenScad());
     }
 }

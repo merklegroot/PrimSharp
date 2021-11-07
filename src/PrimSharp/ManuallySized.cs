@@ -16,6 +16,6 @@
 
         public decimal Height { get; private set; }
         
-        public override string Render() => _prim.Render();
+        public override string ToOpenScad() => _prim.ToOpenScad();
     }
 }

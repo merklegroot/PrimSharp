@@ -23,7 +23,7 @@ namespace PrimDesign.Spider
         private const decimal TapRadius = 1.0m;
         private const decimal TapHeight = 10.0m;
 
-        public override string Render()
+        public override string ToOpenScad()
         {
             var box = new Box(Width, Breadth, Height, WallThickness, FloorThickness);
             var horizontalCutout = new Cube(box.Width, box.Breadth - 2 * 1.43m, box.Height - FloorThickness - LowerHeight);
@@ -41,7 +41,7 @@ namespace PrimDesign.Spider
                     + FloorThickness
                     + horizontalStabilizer.Height / 2
                 ))
-                .Render();
+                .ToOpenScad();
         }
     }
 }

@@ -12,6 +12,6 @@ namespace PrimDesignTests
 
         [Fact]
         public void Pca_puzzle() =>
-            _outputHelper.WriteLine(new PuzzlePca().Render());
+            _outputHelper.WriteLine(new PuzzlePca().ToOpenScad());
     }
 }

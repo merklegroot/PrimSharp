@@ -11,6 +11,6 @@ namespace PrimDesignTests.Spider
         public PowerSectionTests(ITestOutputHelper outputHelper) => _outputHelper = outputHelper;
 
         [Fact]
-        public void Power_section() => _outputHelper.WriteLine(new PowerSection().Render());
+        public void Power_section() => _outputHelper.WriteLine(new PowerSection().ToOpenScad());
     }
 }

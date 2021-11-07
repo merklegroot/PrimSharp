@@ -20,7 +20,7 @@ namespace PrimSharp
 
         public int Resolution { get; init; } = DefaultResolution;
 
-        public override string Render() =>
+        public override string ToOpenScad() =>
             $"cylinder({{r1={R1}, r2={R2}, h={Height}, center=true, $fn={Resolution}}})";
     }
 }

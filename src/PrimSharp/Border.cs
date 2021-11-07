@@ -18,7 +18,7 @@
 
         private IPrim Shape => CloneAs<Cube>().Subtract(GenerateCutout());
 
-        public override string Render() => Shape.Render();
+        public override string ToOpenScad() => Shape.ToOpenScad();
 
         private IPrim GenerateCutout() => new Cube(Width - 2 * WallThickness, Breadth - 2 * WallThickness, Height);
     }

@@ -5,7 +5,7 @@ namespace PrimDesign.Spider
 {
     public record PuzzlePca : Prim
     {
-        public override string Render()
+        public override string ToOpenScad()
         {
             /*
                 const pcaDim = {
@@ -36,7 +36,7 @@ namespace PrimDesign.Spider
                 WallThickness,
                 FloorThickness);
 
-            return bumper.Stack(pcaBorder).Render();
+            return bumper.Stack(pcaBorder).ToOpenScad();
         }
     }
 }

@@ -19,9 +19,9 @@ namespace PrimSharp
 
         protected TSelf CloneAs<TSelf>() => JsonConvert.DeserializeObject<TSelf>(JsonConvert.SerializeObject(this));
 
-        public override string ToString() => Render();
+        public override string ToString() => ToOpenScad();
 
-        public abstract string Render();
+        public abstract string ToOpenScad();
 
         public IRotation RotateX(decimal angle) => 
             new Rotation(this, 0, angle);

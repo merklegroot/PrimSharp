@@ -9,7 +9,7 @@ namespace PrimSharp
 
         public PrimSubtraction(IPrim a, IPrim b) { _a = a; _b = b; }
 
-        public override string Render() =>
-            $"difference() {{ {_a.Render()} {_b.Render()} }}";
+        public override string ToOpenScad() =>
+            $"difference() {{ {_a.ToOpenScad()} {_b.ToOpenScad()} }}";
     }
 }

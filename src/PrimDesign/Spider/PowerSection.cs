@@ -6,7 +6,7 @@ namespace PrimDesign.Spider
 {
     public record PowerSection : Prim
     {
-        public override string Render()
+        public override string ToOpenScad()
         {
             var sizeableSwitchContainer = new SwitchContainer();
 
@@ -37,7 +37,7 @@ namespace PrimDesign.Spider
                 .Union(splicerContainer
                     .TranslateX(floor.Width / 2 - splicerContainer.Width / 2)
                     .TranslateZ(splicerContainer.Height / 2 - floor.Height / 2))
-                .Render();
+                .ToOpenScad();
         }
     }
 }

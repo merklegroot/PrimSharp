@@ -14,10 +14,10 @@ namespace PrimSharp
 
         public decimal[] Offset { get; private set; }
 
-        public override string Render() =>
+        public override string ToOpenScad() =>
             new StringBuilder()
                 .AppendLine($"translate([{Offset[0]}, {Offset[1]}, {Offset[2]}]) {{")
-                .AppendLine(_prim.Render())
+                .AppendLine(_prim.ToOpenScad())
                 .AppendLine("}")
                 .ToString();
     }

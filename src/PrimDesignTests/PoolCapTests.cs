@@ -17,7 +17,7 @@ namespace PrimDesignTests
         [Fact]
         public void Pool_cap()
         {
-            _testOutputHelper.WriteLine(new PoolCap().Render());
+            _testOutputHelper.WriteLine(new PoolCap().ToOpenScad());
         }
     }
 }

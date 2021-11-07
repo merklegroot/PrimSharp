@@ -11,6 +11,6 @@ namespace PrimDesignTests
         public SplicerContainerTests(ITestOutputHelper outputHelper) => _outputHelper = outputHelper;
 
         [Fact]
-        public void Splicer_container() => _outputHelper.WriteLine(new SplicerContainer().Render());
+        public void Splicer_container() => _outputHelper.WriteLine(new SplicerContainer().ToOpenScad());
     }
 }

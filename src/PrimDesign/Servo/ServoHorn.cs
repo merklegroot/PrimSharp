@@ -32,7 +32,7 @@ namespace PrimDesign.Servo
         */
 
 
-        public override string Render()
+        public override string ToOpenScad()
         {
             throw new NotImplementedException();
         }

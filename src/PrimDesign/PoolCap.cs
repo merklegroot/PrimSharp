@@ -16,7 +16,7 @@ namespace PrimDesign
         const decimal SlipMinorRadius = 14.0m;
         const decimal CenterCutRadius = 12.0m;
 
-        public override string Render()
+        public override string ToOpenScad()
         {
             var cap = new Cylinder(radius: CapRadius, height: CapHeight);
             var main = new Cylinder(radius: MainRadius, height: MainHeight);
@@ -27,7 +27,7 @@ namespace PrimDesign
                 .Union(main.TranslateZ(cap.Height / 2 + main.Height / 2))
                 .Union(slip.TranslateZ(cap.Height / 2 + main.Height + slip.Height / 2))
                 .Subtract(centerCut.TranslateZ(cap.Height / 2 + centerCut.Height / 2))
-                .Render();
+                .ToOpenScad();
         }
     }
 }

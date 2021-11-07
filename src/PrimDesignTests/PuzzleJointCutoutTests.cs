@@ -20,7 +20,7 @@ namespace PrimDesignTests
             var puzzleJointCutout = new PuzzleJointCutout();
             var border = new Border(puzzleJointCutout.Size);
 
-            var result = puzzleJointCutout.Union(border).Render();
+            var result = puzzleJointCutout.Union(border).ToOpenScad();
             _outputHelper.WriteLine(result);
         }
     }

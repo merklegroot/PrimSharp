@@ -12,6 +12,6 @@ namespace PrimDesignTests
 
         [Fact]
         public void Puzzle_buck() =>
-            _outputHelper.WriteLine(new PuzzleBuck().Render());
+            _outputHelper.WriteLine(new PuzzleBuck().ToOpenScad());
     }
 }

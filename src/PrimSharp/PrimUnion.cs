@@ -9,7 +9,7 @@ namespace PrimSharp
 
         public PrimUnion(IPrim a, IPrim b) { _a = a; _b = b; }
 
-        public override string Render() =>
-            $"union() {{ {_a.Render()} {_b.Render()} }}";
+        public override string ToOpenScad() =>
+            $"union() {{ {_a.ToOpenScad()} {_b.ToOpenScad()} }}";
     }
 }

@@ -19,7 +19,7 @@ namespace PrimDesign
 
         public decimal Breadth => BatteryDim.Breadth + 2 * Thickness;
 
-        public override string Render()
+        public override string ToOpenScad()
         {
             var outerBox = new Box(Width, Breadth, Height, Thickness, Thickness);
 
@@ -31,7 +31,7 @@ namespace PrimDesign
                 .Subtract(sideCutoutA.Translate(outerBox.Width / 2 - sideCutoutA.Width / 2, 0, outerBox.Height / 2 - sideCutoutA.Height / 2))
                 .Subtract(sideCutoutB.Translate(-outerBox.Width / 2 + sideCutoutB.Width / 2, outerBox.Breadth / 2 - sideCutoutB.Breadth / 2 - Thickness, outerBox.Height / 2 - sideCutoutB.Height / 2))
                 .Subtract(sideCutoutB.Translate(-outerBox.Width / 2 + sideCutoutB.Width / 2, -(outerBox.Breadth / 2 - sideCutoutB.Breadth / 2 - Thickness), outerBox.Height / 2 - sideCutoutB.Height / 2))
-                .Render();
+                .ToOpenScad();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace PrimSharpTests
         [Fact]
         public void Cylinder_with_defaults()
         {
-            var result = new Cylinder().Render();
+            var result = new Cylinder().ToOpenScad();
             _outputHelper.WriteLine(result);
         }
     }

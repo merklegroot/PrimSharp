@@ -12,6 +12,6 @@ namespace PrimDesignTests
 
         [Fact]
         public void Puzzle_lipo() =>
-            _outputHelper.WriteLine(new PuzzleLipo().Render());
+            _outputHelper.WriteLine(new PuzzleLipo().ToOpenScad());
     }
 }

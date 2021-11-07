@@ -25,7 +25,7 @@ namespace PrimDesign.Spider
 
         private Cube Wing => new Cube(WingSize, Breadth + 2 * WingHangover, FloorThickness);
 
-        public override string Render()
+        public override string ToOpenScad()
         {
             var box = new Box(Width, Breadth, Height, 
                 // WallThickness, 
@@ -47,7 +47,7 @@ namespace PrimDesign.Spider
                 result = result.Subtract(ScrewHole.Translate(offsetX, offsetY, floorCutout.Height / 2 - box.Height / 2));
             }
 
-            return result.Render();
+            return result.ToOpenScad();
         }
     }
 }

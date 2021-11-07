@@ -4,7 +4,7 @@ namespace PrimDesign.Spider
 {
     public record PuzzleBuck : Prim
     {
-        public override string Render()
+        public override string ToOpenScad()
         {
             const decimal CutoutWidth = 67.3m;
             const decimal CutoutBreadth = 37.8m - 1.0m;
@@ -40,7 +40,7 @@ namespace PrimDesign.Spider
             return bumper.TranslateZ(bumper.Height / 2)
                 .Subtract(cubeCutout.TranslateZ(cubeCutout.Height / 2))
                 .Union(boxWithHorizontalCutout.TranslateZ(box.Height / 2))
-                .Render();
+                .ToOpenScad();
         }
     }
 }

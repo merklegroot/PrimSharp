@@ -11,6 +11,6 @@ namespace PrimDesignTests.Spider
         public SpiderBoxTests(ITestOutputHelper outputHelper) => _outputHelper = outputHelper;
 
         [Fact]
-        public void Spider_box() => _outputHelper.WriteLine(new SpiderBox().Render());
+        public void Spider_box() => _outputHelper.WriteLine(new SpiderBox().ToOpenScad());
     }
 }

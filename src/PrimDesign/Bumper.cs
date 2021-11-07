@@ -54,6 +54,6 @@ namespace PrimDesign
             }
         }
 
-        public override string Render() => Shape.Render();
+        public override string ToOpenScad() => Shape.ToOpenScad();
     }
 }

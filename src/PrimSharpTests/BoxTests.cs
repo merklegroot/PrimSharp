@@ -13,14 +13,14 @@ namespace PrimSharpTests
         [Fact]
         public void Box_with_defaults()
         {
-            var result = new Box().Render();
+            var result = new Box().ToOpenScad();
             _outputHelper.WriteLine(result);
         }
 
         [Fact]
         public void Box_with_enough_space_for_cutout()
         {
-            var result = new Box(4, 4, 4).Render();
+            var result = new Box(4, 4, 4).ToOpenScad();
             _outputHelper.WriteLine(result);
         }
     }

@@ -11,6 +11,6 @@ namespace PrimSharpTests
         public ArchTests(ITestOutputHelper outputHelper) { _outputHelper = outputHelper; }
 
         [Fact]
-        public void Arch_with_defaults() => _outputHelper.WriteLine(new Arch().Render());
+        public void Arch_with_defaults() => _outputHelper.WriteLine(new Arch().ToOpenScad());
     }
 }
