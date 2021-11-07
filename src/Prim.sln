@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimSharp", "PrimSharp\Prim
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimSharpTests", "PrimSharpTests\PrimSharpTests.csproj", "{F2A2A099-E0C1-4A03-B1B8-DC0E943D584E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimDesignLib", "PrimDesignLib\PrimDesignLib.csproj", "{A7BDF97A-D655-40B8-9D2A-A34356935A2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimDesign", "PrimDesign\PrimDesign.csproj", "{A7BDF97A-D655-40B8-9D2A-A34356935A2C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimDesignLibTests", "PrimDesignLibTests\PrimDesignLibTests.csproj", "{EEBCDB08-CAF4-4328-BA49-2280B5F4BDF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimDesignTests", "PrimDesignTests\PrimDesignTests.csproj", "{EEBCDB08-CAF4-4328-BA49-2280B5F4BDF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
