@@ -1,4 +1,5 @@
 using PrimSharp;
+using PrimSharp.Utils;
 using Xunit;
 using Xunit.Abstractions;
 

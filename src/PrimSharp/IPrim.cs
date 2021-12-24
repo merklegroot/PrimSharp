@@ -1,13 +1,7 @@
 namespace PrimSharp
 {
-    public interface IPrim
+    public interface IPrim : IRenderable
     {
-        /// <summary>
-        /// Converts the primitive to OpenSCAD code.
-        /// </summary>
-        /// <returns>Code that can be rendered by OpenSCAD.</returns>
-        string ToOpenScad();
-
         /// <summary>
         /// Combine the primitive with another primitive.
         /// </summary>
