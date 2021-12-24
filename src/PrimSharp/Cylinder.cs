@@ -12,7 +12,7 @@ namespace PrimSharp
         
         public Cylinder(decimal radius) : this(radius, DefaultHeight) { }
 
-        public Cylinder(decimal? radius, decimal? height) { Radius = radius ?? DefaultRadius; Height = Height != default ? Height : DefaultHeight; }
+        public Cylinder(decimal? radius, decimal? height) { Radius = radius ?? DefaultRadius; Height = height ?? DefaultHeight; }
 
         public decimal Radius { get; init; }
         
