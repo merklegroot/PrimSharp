@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace PrimSharp
 {
-    public record Polygon : IRenderable
+    public record Polygon : Prim
     {
         public List<Point2d> Points { get; init; }
 
-        public string ToOpenScad() =>
-            $"polygon(points=[{string.Join(", ", Points)}]);";
+        public override string ToOpenScad() =>
+            $"polygon(points=[{string.Join(", ", Points.Select(point => point.ToOpenScad()))}]);";
     }
 }
