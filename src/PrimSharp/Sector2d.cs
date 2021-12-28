@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace PrimSharp
 {
-    public class Sector2d : IRenderable, ISize2d
+    public class Sector2d : IRenderable, ISize2d, IPrim2d
     {
         public decimal Radius { get; init; } = 1;
 

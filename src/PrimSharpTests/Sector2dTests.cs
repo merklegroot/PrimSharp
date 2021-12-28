@@ -13,5 +13,10 @@ namespace PrimSharpTests
         [Fact]
         public void Sector2d_with_defaults() =>
             _outputHelper.WriteLine(new Sector2d().ToOpenScad());
+
+        [Fact]
+        public void Sector_extrude() =>
+            _outputHelper.WriteLine(new Sector2d().Extrude(2).ToOpenScad());
+        
     }
 }
