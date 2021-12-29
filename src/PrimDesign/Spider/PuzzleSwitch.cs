@@ -15,7 +15,6 @@ namespace PrimDesign.Spider
             return bumper.TranslateZ(bumper.Height / 2)
                 .Union(switchContainer.TranslateZ(switchContainer.Height / 2 + bumper.Height / 2).TranslateX(bumper.Width / 4))
                 .Union(splicerContainer.TranslateZ(splicerContainer.Height / 2 + bumper.Height / 2).TranslateX(-bumper.Width / 4))
-
                 .ToOpenScad();
         }
     }
