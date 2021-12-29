@@ -1,5 +1,4 @@
 using PrimSharp;
-using PrimSharp.Utils;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -8,21 +7,14 @@ namespace PrimSharpTests
     public class BoxTests
     {
         private readonly ITestOutputHelper _outputHelper;
-
-        public BoxTests(ITestOutputHelper outputHelper) { _outputHelper = outputHelper; }
-
-        [Fact]
-        public void Box_with_defaults()
-        {
-            var result = new Box().ToOpenScad();
-            _outputHelper.WriteLine(result);
-        }
+        public BoxTests(ITestOutputHelper outputHelper) => _outputHelper = outputHelper;
 
         [Fact]
-        public void Box_with_enough_space_for_cutout()
-        {
-            var result = new Box(4, 4, 4).ToOpenScad();
-            _outputHelper.WriteLine(result);
-        }
+        public void Box_with_defaults() =>
+            _outputHelper.WriteLine(new Box().ToOpenScad());
+
+        [Fact]
+        public void Box_with_enough_space_for_cutout() =>
+            _outputHelper.WriteLine(new Box(4, 4, 4).ToOpenScad());        
     }
 }
