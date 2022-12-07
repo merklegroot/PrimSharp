@@ -1,6 +1,6 @@
 namespace PrimSharp
 {
-    public record Cylinder : Prim
+    public record Cylinder : Prim, ISizedPrim
     {
         private const decimal DefaultRadius = 0.5m;
 
@@ -19,6 +19,10 @@ namespace PrimSharp
         public decimal Height { get; init; }
 
         public int Resolution { get; init; } = DefaultResolution;
+
+        public decimal Width => 2.0m * Radius;
+
+        public decimal Breadth => 2.0m * Radius;
 
         public override string ToOpenScad() =>
             $"cylinder(h={Height}, r={Radius}, $fn={Resolution}, center=true);";
