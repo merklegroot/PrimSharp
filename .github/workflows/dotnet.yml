@@ -36,11 +36,3 @@ jobs:
       working-directory: ./src/
       run: dotnet build --no-restore -c Release
 
-    - name: Pack
-      working-directory: ./src/
-      run: dotnet pack --configuration Release
-
-    - name: Publish
-      working-directory: ./src/PrimSharp/bin/Release
-      run: dotnet nuget push PrimSharp.1.0.0.nupkg -s https://nuget.pkg.github.com/merklegroot/index.json --api-key ${{secrets.NUGET_API_KEY}}
-
