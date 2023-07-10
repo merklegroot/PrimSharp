@@ -30,7 +30,7 @@ jobs:
 
     - name: Test
       working-directory: ./src/
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test
 
     - name: Pack
       working-directory: ./src/
