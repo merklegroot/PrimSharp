@@ -3,6 +3,7 @@ name: .NET
 on:
   push:
     branches: [ master ]
+    
   pull_request:
     branches: [ master ]
 
@@ -13,16 +14,33 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
+
     - name: Restore dependencies
+      working-directory: ./src/
       run: dotnet restore
-      working-directory: ./src
+
     - name: Build
+      working-directory: ./src/
       run: dotnet build --no-restore
-      working-directory: ./src
+
     - name: Test
+      working-directory: ./src/
       run: dotnet test --no-build --verbosity normal
-      working-directory: ./src
+
+    - name: Build
+      working-directory: ./src/
+      run: dotnet build --no-restore -c Release
+
+    - name: Pack
+      working-directory: ./src/
+      run: dotnet pack --configuration Release
+
+    - name: Publish
+      working-directory: ./src/PrimSharp/bin/Release
+      run: dotnet nuget push PrimSharp.1.0.0.nupkg -s https://nuget.pkg.github.com/merklegroot/index.json --api-key ${{secrets.NUGET_API_KEY}}
+
