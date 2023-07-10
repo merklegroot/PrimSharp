@@ -43,5 +43,5 @@ jobs:
         
     - name: Publish
       working-directory: ./src/PrimSharp/bin/Release
-      run: dotnet nuget push PrimSharp.1.0.0.nupkg -s https://nuget.pkg.github.com/merklegroot/index.json --api-key ${{secrets.NUGET_API_KEY}}
+      run: dotnet nuget push PrimSharp.1.0.0.nupkg -s https://nuget.pkg.github.com/merklegroot/index.json --api-key ${{secrets.NUGET_PUBLISH_KEY}}
       
