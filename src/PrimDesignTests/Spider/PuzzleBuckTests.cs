@@ -2,7 +2,7 @@
 using Xunit;
 using Xunit.Abstractions;
 
-namespace PrimDesignTests
+namespace PrimDesignTests.Spider
 {
     public class PuzzleBuckTests
     {

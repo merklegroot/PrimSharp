@@ -1,9 +1,9 @@
-using PrimSharp;
 using PrimDesign;
+using PrimSharp;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace PrimDesignTests
+namespace PrimDesignTests.Spider
 {
     public class PuzzleJointTests
     {

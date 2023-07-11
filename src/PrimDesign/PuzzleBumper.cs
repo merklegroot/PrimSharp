@@ -64,8 +64,7 @@ namespace PrimDesign
                         .TranslateZ(puzzleJointCutout.Height / 2 - puzzleCutoutHost.Height / 2))
                     .ManuallySize(puzzleCutoutHost.Size);
 
-                return mainArea
-                    .Union(hostWithCutouts.TranslateY(-(mainArea.Breadth / 2 + hostWithCutouts.Breadth / 2)))
+                return hostWithCutouts.TranslateY(-(mainArea.Breadth / 2 + hostWithCutouts.Breadth / 2))
                     .Union(jointCap.TranslateY(mainArea.Breadth / 2 - jointCap.Breadth / 2).TranslateX(distX)
                         .TranslateZ(jointCap.Height / 2 - Height / 2))
                     .Union(puzzleJoint.TranslateY(mainArea.Breadth / 2 + puzzleJoint.Breadth / 2).TranslateX(distX)
