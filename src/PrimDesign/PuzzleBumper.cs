@@ -14,18 +14,25 @@ namespace PrimDesign
 
         private const decimal JointHeight = 10.0m;
 
-        public PuzzleBumper() : this(DefaultBreadth)
+        public PuzzleBumper()
         {
         }
 
+        public PuzzleBumper(ISize size)
+        {
+            Width = size.Width;
+            Breadth = size.Breadth;
+            Height = size.Height;
+        }
+        
         public PuzzleBumper(decimal breadth) =>
             Breadth = breadth;
 
-        public decimal Width { get; private set; } = DefaultWidth;
+        public decimal Width { get; init; } = DefaultWidth;
 
-        public decimal Breadth { get; private set; } = DefaultBreadth;
+        public decimal Breadth { get; init; } = DefaultBreadth;
 
-        public decimal Height { get; private set; } = DefaultHeight;
+        public decimal Height { get; init; } = DefaultHeight;
 
         private IPrim Shape
         {
