@@ -4,15 +4,15 @@ using PrimDesign;
 
 namespace PrimDesignTests
 {
-    public class BumperTests
+    public class PuzzleBumperTests
     {
         private readonly ITestOutputHelper _outputHelper;
 
-        public BumperTests(ITestOutputHelper outputHelper) =>
+        public PuzzleBumperTests(ITestOutputHelper outputHelper) =>
             _outputHelper = outputHelper;
 
         [Fact]
         public void Bumper_with_defaults() =>
-            _outputHelper.WriteLine(new Bumper().ToOpenScad());        
+            _outputHelper.WriteLine(new PuzzleBumper().ToOpenScad());        
     }
 }

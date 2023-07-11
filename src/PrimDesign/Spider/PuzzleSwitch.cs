@@ -8,7 +8,7 @@ namespace PrimDesign.Spider
         {
             const decimal BumperBreadth = 30;
 
-            var bumper = new Bumper(BumperBreadth);
+            var bumper = new PuzzleBumper(BumperBreadth);
             var switchContainer = new SwitchContainer();
             var splicerContainer = new SplicerContainer();
 

@@ -23,7 +23,7 @@ const batteryDim = {
             const decimal BumperBreadth = 48;
             const decimal ComponentUpperHeight = 20;
 
-            var bumper = new Bumper(BumperBreadth);
+            var bumper = new PuzzleBumper(BumperBreadth);
 
             var box = new Box(
                 CutoutWidth + 2.0m * WallThickness,
