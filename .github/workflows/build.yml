@@ -2,7 +2,7 @@ name: build
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, release/* ]
 
   pull_request:
     branches: [ master ]
@@ -15,33 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 6.0.x
+    - name: Parse Version
+      id: parse_version
+      run: echo "::set-output name=version::${GITHUB_REF#refs/heads/release/}"
 
-    - name: Restore dependencies
-      working-directory: ./src/
-      run: dotnet restore
-
-    - name: Build
-      working-directory: ./src/
-      run: dotnet build -c Release
-
-    - name: Test
-      working-directory: ./src/
-      run: dotnet test
-
-    - name: Pack
-      working-directory: ./src/
-      run: dotnet pack -c Release
-
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3.1.2
-      with:
-        path: ./src/PrimSharp/bin/Release/PrimSharp.1.0.0.nupkg
-        
-    - name: Publish
-      working-directory: ./src/PrimSharp/bin/Release
-      run: dotnet nuget push PrimSharp.1.0.0.nupkg -s https://nuget.pkg.github.com/merklegroot/index.json --api-key ${{secrets.NUGET_PUBLISH_KEY}}
-      
