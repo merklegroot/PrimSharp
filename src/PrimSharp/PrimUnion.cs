@@ -1,15 +1,14 @@
 using Newtonsoft.Json;
 
-namespace PrimSharp
+namespace PrimSharp;
+
+public record PrimUnion : Prim
 {
-    public record PrimUnion : Prim
-    {
-        private readonly IPrim _a;
-        private readonly IPrim _b;
+    private readonly IPrim _a;
+    private readonly IPrim _b;
 
-        public PrimUnion(IPrim a, IPrim b) { _a = a; _b = b; }
+    public PrimUnion(IPrim a, IPrim b) { _a = a; _b = b; }
 
-        public override string ToOpenScad() =>
-            $"union() {{ {_a.ToOpenScad()} {_b.ToOpenScad()} }}";
-    }
+    public override string ToOpenScad() =>
+        $"union() {{ {_a.ToOpenScad()} {_b.ToOpenScad()} }}";
 }

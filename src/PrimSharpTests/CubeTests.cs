@@ -3,39 +3,39 @@ using Shouldly;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace PrimSharpTests
+namespace PrimSharpTests;
+
+public class CubeTests
 {
-    public class CubeTests
+    private readonly ITestOutputHelper _outputHelper;
+
+    public CubeTests(ITestOutputHelper outputHelper) =>
+        _outputHelper = outputHelper;
+
+    [Fact]
+    public void Cube_with_defaults()
     {
-        private readonly ITestOutputHelper _outputHelper;
+        _outputHelper.WriteLine(new Cube().ToOpenScad());
+    }
 
-        public CubeTests(ITestOutputHelper outputHelper) { _outputHelper = outputHelper; }
+    [Fact]
+    public void Rotated_cube()
+    {
+        var rotation = new Cube().RotateZ(45);
 
-        [Fact]
-        public void Cube_with_defaults()
-        {
-            _outputHelper.WriteLine(new Cube().ToOpenScad());
-        }
+        rotation.Angle.ShouldBe(45);
+        rotation.Axis.ShouldBe(2);
 
-        [Fact]
-        public void Rotated_cube()
-        {
-            var rotation = new Cube().RotateZ(45);
+        var result = rotation.ToOpenScad();
+        _outputHelper.WriteLine(result);
+    }
 
-            rotation.Angle.ShouldBe(45);
-            rotation.Axis.ShouldBe(2);
+    [Fact]
+    public void Cube_subtraction_test()
+    {
+        var a = new Cube();
+        var b = new Cube();
 
-            var result = rotation.ToOpenScad();
-            _outputHelper.WriteLine(result);
-        }
-
-        [Fact]
-        public void Cube_subtraction_test()
-        {
-            var a = new Cube();
-            var b = new Cube();
-
-            _outputHelper.WriteLine(a.Subtract(b).ToOpenScad());
-        }
+        _outputHelper.WriteLine(a.Subtract(b).ToOpenScad());
     }
 }

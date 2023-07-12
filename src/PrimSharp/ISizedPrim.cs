@@ -1,7 +1,6 @@
-﻿namespace PrimSharp
+﻿namespace PrimSharp;
+
+public interface ISizedPrim : IPrim, ISize
 {
-    public interface ISizedPrim : IPrim, ISize
-    {
         
-    }
 }

@@ -1,7 +1,6 @@
-using PrimSharp;
 using PrimSharp.Extensions;
 
-namespace PrimDesign;
+namespace PrimSharp.Puzzle;
 
 /// <summary>
 /// Creates a bumper with puzzle joints.

@@ -1,13 +1,12 @@
-﻿namespace PrimSharp
+﻿namespace PrimSharp;
+
+public interface ISize
 {
-    public interface ISize
-    {
-        decimal Width { get; }
+    decimal Width { get; }
 
-        decimal Breadth { get; }
+    decimal Breadth { get; }
 
-        decimal Height { get; }
+    decimal Height { get; }
 
-        decimal[] Size => new decimal[] { Width, Breadth, Height };
-    }
+    decimal[] Size => new decimal[] { Width, Breadth, Height };
 }

@@ -1,37 +1,36 @@
 ﻿using PrimSharp;
 
-namespace PrimDesign
+namespace PrimDesign.Spider;
+
+public record BatteryBumper : Prim, ISizedPrim
 {
-    public record BatteryBumper : Prim, ISizedPrim
+    private static class BatteryDim
     {
-        private static class BatteryDim
-        {
-            public static decimal Width => 75.3m;
-            public static decimal Breadth = 36.8m;
-            public static decimal Height = 20.0m;         
-        }
+        public static decimal Width => 75.3m;
+        public static decimal Breadth = 36.8m;
+        public static decimal Height = 20.0m;         
+    }
 
-        private const decimal Thickness = 2.25m;
+    private const decimal Thickness = 2.25m;
 
 
-        public decimal Height => BatteryDim.Height + Thickness;
-        public decimal Width => BatteryDim.Width + 2 * Thickness;
+    public decimal Height => BatteryDim.Height + Thickness;
+    public decimal Width => BatteryDim.Width + 2 * Thickness;
 
-        public decimal Breadth => BatteryDim.Breadth + 2 * Thickness;
+    public decimal Breadth => BatteryDim.Breadth + 2 * Thickness;
 
-        public override string ToOpenScad()
-        {
-            var outerBox = new Box(Width, Breadth, Height, Thickness, Thickness);
+    public override string ToOpenScad()
+    {
+        var outerBox = new Box(Width, Breadth, Height, Thickness, Thickness);
 
-            var sideCutoutA = new Cube(Thickness, 14, Height - Thickness);
+        var sideCutoutA = new Cube(Thickness, 14, Height - Thickness);
 
-            var sideCutoutB = new Cube(Thickness, 10.0m, Height - Thickness);
+        var sideCutoutB = new Cube(Thickness, 10.0m, Height - Thickness);
 
-            return outerBox
-                .Subtract(sideCutoutA.Translate(outerBox.Width / 2 - sideCutoutA.Width / 2, 0, outerBox.Height / 2 - sideCutoutA.Height / 2))
-                .Subtract(sideCutoutB.Translate(-outerBox.Width / 2 + sideCutoutB.Width / 2, outerBox.Breadth / 2 - sideCutoutB.Breadth / 2 - Thickness, outerBox.Height / 2 - sideCutoutB.Height / 2))
-                .Subtract(sideCutoutB.Translate(-outerBox.Width / 2 + sideCutoutB.Width / 2, -(outerBox.Breadth / 2 - sideCutoutB.Breadth / 2 - Thickness), outerBox.Height / 2 - sideCutoutB.Height / 2))
-                .ToOpenScad();
-        }
+        return outerBox
+            .Subtract(sideCutoutA.Translate(outerBox.Width / 2 - sideCutoutA.Width / 2, 0, outerBox.Height / 2 - sideCutoutA.Height / 2))
+            .Subtract(sideCutoutB.Translate(-outerBox.Width / 2 + sideCutoutB.Width / 2, outerBox.Breadth / 2 - sideCutoutB.Breadth / 2 - Thickness, outerBox.Height / 2 - sideCutoutB.Height / 2))
+            .Subtract(sideCutoutB.Translate(-outerBox.Width / 2 + sideCutoutB.Width / 2, -(outerBox.Breadth / 2 - sideCutoutB.Breadth / 2 - Thickness), outerBox.Height / 2 - sideCutoutB.Height / 2))
+            .ToOpenScad();
     }
 }

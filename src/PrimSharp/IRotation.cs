@@ -1,9 +1,8 @@
-﻿namespace PrimSharp
-{
-    public interface IRotation : IPrim
-    {
-        int Axis { get;  }
+﻿namespace PrimSharp;
 
-        decimal Angle { get; }
-    }
+public interface IRotation : IPrim
+{
+    int Axis { get;  }
+
+    decimal Angle { get; }
 }

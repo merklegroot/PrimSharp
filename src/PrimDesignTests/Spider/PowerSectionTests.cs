@@ -2,15 +2,14 @@
 using Xunit;
 using Xunit.Abstractions;
 
-namespace PrimDesignTests.Spider
+namespace PrimDesignTests.Spider;
+
+public class PowerSectionTests
 {
-    public class PowerSectionTests
-    {
-        private readonly ITestOutputHelper _outputHelper;
+    private readonly ITestOutputHelper _outputHelper;
 
-        public PowerSectionTests(ITestOutputHelper outputHelper) => _outputHelper = outputHelper;
+    public PowerSectionTests(ITestOutputHelper outputHelper) => _outputHelper = outputHelper;
 
-        [Fact]
-        public void Power_section() => _outputHelper.WriteLine(new PowerSection().ToOpenScad());
-    }
+    [Fact]
+    public void Power_section() => _outputHelper.WriteLine(new PowerSection().ToOpenScad());
 }

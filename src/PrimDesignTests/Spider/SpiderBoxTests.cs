@@ -2,15 +2,14 @@
 using Xunit;
 using Xunit.Abstractions;
 
-namespace PrimDesignTests.Spider
+namespace PrimDesignTests.Spider;
+
+public class SpiderBoxTests
 {
-    public class SpiderBoxTests
-    {
-        private readonly ITestOutputHelper _outputHelper;
+    private readonly ITestOutputHelper _outputHelper;
 
-        public SpiderBoxTests(ITestOutputHelper outputHelper) => _outputHelper = outputHelper;
+    public SpiderBoxTests(ITestOutputHelper outputHelper) => _outputHelper = outputHelper;
 
-        [Fact]
-        public void Spider_box() => _outputHelper.WriteLine(new SpiderBox().ToOpenScad());
-    }
+    [Fact]
+    public void Spider_box() => _outputHelper.WriteLine(new SpiderBox().ToOpenScad());
 }

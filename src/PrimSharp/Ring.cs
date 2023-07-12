@@ -1,27 +1,26 @@
-﻿namespace PrimSharp
+﻿namespace PrimSharp;
+
+/// <summary>
+/// A hollow cylinder
+/// </summary>
+public record Ring : Cylinder
 {
-    /// <summary>
-    /// A hollow cylinder
-    /// </summary>
-    public record Ring : Cylinder
+    public decimal InnerRadius { get; init; }
+
+    public override string ToOpenScad()
     {
-        public decimal InnerRadius { get; init; }
-
-        public override string ToOpenScad()
+        var innerCylinder = new Cylinder
         {
-            var innerCylinder = new Cylinder
-            {
-                Radius = InnerRadius,
-                Height = Height
-            };
+            Radius = InnerRadius,
+            Height = Height
+        };
 
-            var outerCylinder = new Cylinder
-            {
-                Radius = Radius,
-                Height = Height
-            };
+        var outerCylinder = new Cylinder
+        {
+            Radius = Radius,
+            Height = Height
+        };
 
-            return outerCylinder.Subtract(innerCylinder).ToOpenScad();
-        }
+        return outerCylinder.Subtract(innerCylinder).ToOpenScad();
     }
 }

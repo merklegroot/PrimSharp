@@ -1,7 +1,6 @@
-﻿namespace PrimSharp
+﻿namespace PrimSharp;
+
+public interface ITranslation : IPrim
 {
-    public interface ITranslation : IPrim
-    {
-        decimal[] Offset { get; }
-    }
+    decimal[] Offset { get; }
 }

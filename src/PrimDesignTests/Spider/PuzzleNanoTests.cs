@@ -2,16 +2,15 @@
 using Xunit;
 using Xunit.Abstractions;
 
-namespace PrimDesignTests
+namespace PrimDesignTests.Spider;
+
+public class PuzzleNanoTests
 {
-    public class PuzzleNanoTests
-    {
-        private readonly ITestOutputHelper _outputHelper;
+    private readonly ITestOutputHelper _outputHelper;
 
-        public PuzzleNanoTests(ITestOutputHelper outputHelper) => _outputHelper = outputHelper;
+    public PuzzleNanoTests(ITestOutputHelper outputHelper) => _outputHelper = outputHelper;
 
-        [Fact]
-        public void Puzzle_nano() =>
-            _outputHelper.WriteLine(new PuzzleNano().ToOpenScad());
-    }
+    [Fact]
+    public void Puzzle_nano() =>
+        _outputHelper.WriteLine(new PuzzleNano().ToOpenScad());
 }

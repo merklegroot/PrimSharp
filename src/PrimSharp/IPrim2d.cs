@@ -1,6 +1,5 @@
-﻿namespace PrimSharp
+﻿namespace PrimSharp;
+
+public interface IPrim2d : IRenderable
 {
-    public interface IPrim2d : IRenderable
-    {
-    }
 }
