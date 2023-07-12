@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace PrimSharp;
 
@@ -17,7 +17,8 @@ public abstract record Prim : IPrim
 
     public IPrim TranslateZ(decimal offset) => Translate(0, 0, offset);
 
-    protected TSelf CloneAs<TSelf>() => JsonConvert.DeserializeObject<TSelf>(JsonConvert.SerializeObject(this));
+    protected TSelf CloneAs<TSelf>() =>
+        JsonSerializer.Deserialize<TSelf>(JsonSerializer.Serialize(this));
 
     public override string ToString() => ToOpenScad();
 
