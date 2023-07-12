@@ -12,7 +12,7 @@ namespace PrimDesignTests
             _outputHelper = outputHelper;
 
         [Fact]
-        public void Bumper_with_defaults() =>
+        public void Puzzle_bumper() =>
             _outputHelper.WriteLine(new PuzzleBumper().ToOpenScad());        
     }
 }

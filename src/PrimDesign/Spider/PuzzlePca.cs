@@ -27,7 +27,7 @@ namespace PrimDesign.Spider
             const decimal BumperBreadth = 40;
 
 
-            var bumper = new PuzzleBumper(BumperBreadth);
+            var bumper = new PuzzleBumper { Breadth = BumperBreadth };
 
             var pcaBorder = new Box(
                 PcaCutoutWidth + 2.0m * WallThickness,

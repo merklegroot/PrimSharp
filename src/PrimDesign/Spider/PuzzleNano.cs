@@ -12,7 +12,7 @@ namespace PrimDesign.Spider
             const decimal FloorThickness = 1.5m;
             const decimal BumperBreadth = 50;
 
-            var bumper = new PuzzleBumper(BumperBreadth);
+            var bumper = new PuzzleBumper { Breadth = BumperBreadth };
 
             var box = new Box(
                 CutoutWidth + 2.0m * WallThickness,

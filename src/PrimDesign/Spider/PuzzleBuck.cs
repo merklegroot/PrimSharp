@@ -18,7 +18,7 @@ namespace PrimDesign.Spider
             const decimal ComponentLowerHeight = 6.7m;
             const decimal ComponentUpperHeight = ComponentLowerHeight + HorizontalCutoutHeight;
 
-            var bumper = new PuzzleBumper(BumperBreadth);
+            var bumper = new PuzzleBumper { Breadth = BumperBreadth };
 
             var box = new Box(
                 CutoutWidth + 2.0m * WallThickness,
