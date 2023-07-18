@@ -13,7 +13,7 @@ public class PuzzleJointCutoutTests
         _outputHelper = outputHelper;
 
     [Fact]
-    public void Puzzle_joint_cutout_with_defaults()
+    public void Puzzle_joint_cutout()
     {
         var puzzleJointCutout = new PuzzleJointCutout();
         var border = new Border(puzzleJointCutout.Size);

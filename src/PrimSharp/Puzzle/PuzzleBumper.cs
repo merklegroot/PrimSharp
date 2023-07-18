@@ -10,6 +10,7 @@ public record PuzzleBumper : Prim, ISizedPrim
     private const decimal DefaultWidth = 85.0m;
     private const decimal DefaultBreadth = 25.0m;
     private const decimal DefaultHeight = 10.0m;
+    private const decimal Tolerance = 0.2m; // Allow for imperfections
 
     public decimal Width { get; init; } = DefaultWidth;
 
@@ -18,14 +19,20 @@ public record PuzzleBumper : Prim, ISizedPrim
     public decimal Height { get; init; } = DefaultHeight;
 
     private PuzzleJoint PuzzleJoint => new(DefaultHeight);
+
+    private PuzzleJointCutout PuzzleJointCutout => new(DefaultHeight);
+
+    private PuzzleJointCutout PuzzleJointCutoutWithBottomSectionAdded =>
+        PuzzleJointCutout with
+            {
+                Height = PuzzleJointCutout.Height - 1.5m// - Tolerance
+            };
         
     private IPrim Shape
     {
         get
         {
-            var puzzleJointCutout = new PuzzleJointCutout(DefaultHeight);
-
-            var distX = Width / 2 - 1.5m * puzzleJointCutout.Width;
+            var distX = Width / 2 - 1.5m * PuzzleJointCutout.Width;
 
             var mainArea = new Cube(Width, Breadth, Height);
 
@@ -38,27 +45,29 @@ public record PuzzleBumper : Prim, ISizedPrim
             var hostWithCutouts = puzzleCutoutHost
                 .Union(hostCap.TranslateY(-puzzleCutoutHost.Breadth / 2 + hostCap.Breadth / 2).TranslateX(distX)
                     .TranslateZ(hostCap.Height / 2 - puzzleCutoutHost.Height / 2))
-                .Subtract(puzzleJointCutout
-                    .TranslateY(-puzzleCutoutHost.Breadth / 2 + puzzleJointCutout.Breadth / 2).TranslateX(distX)
-                    .TranslateZ(puzzleJointCutout.Height / 2 - puzzleCutoutHost.Height / 2))
+                .Subtract(PuzzleJointCutoutWithBottomSectionAdded
+                    .TranslateY(-puzzleCutoutHost.Breadth / 2 + PuzzleJointCutoutWithBottomSectionAdded.Breadth / 2).TranslateX(distX)
+                    .TranslateZ(-PuzzleJointCutoutWithBottomSectionAdded.Height / 2 + puzzleCutoutHost.Height / 2))
                 .Union(hostCap.TranslateY(-puzzleCutoutHost.Breadth / 2 + hostCap.Breadth / 2).TranslateX(-distX)
                     .TranslateZ(hostCap.Height / 2 - puzzleCutoutHost.Height / 2))
-                .Subtract(puzzleJointCutout
-                    .TranslateY(-puzzleCutoutHost.Breadth / 2 + puzzleJointCutout.Breadth / 2).TranslateX(-distX)
-                    .TranslateZ(puzzleJointCutout.Height / 2 - puzzleCutoutHost.Height / 2))
+                .Subtract(PuzzleJointCutoutWithBottomSectionAdded
+                    .TranslateY(-puzzleCutoutHost.Breadth / 2 + PuzzleJointCutoutWithBottomSectionAdded.Breadth / 2).TranslateX(-distX)
+                    .TranslateZ(-PuzzleJointCutoutWithBottomSectionAdded.Height / 2 + puzzleCutoutHost.Height / 2))
                 .ManuallySize(puzzleCutoutHost.Size);
 
             return hostWithCutouts.TranslateY(-(mainArea.Breadth / 2 + hostWithCutouts.Breadth / 2))
                 .Union(jointCap.TranslateY(mainArea.Breadth / 2 - jointCap.Breadth / 2).TranslateX(distX)
                     .TranslateZ(jointCap.Height / 2 - Height / 2))
-                .Union(PuzzleJoint.TranslateY(mainArea.Breadth / 2 + PuzzleJoint.Breadth / 2).TranslateX(distX)
-                    .TranslateZ(PuzzleJoint.Height / 2 - Height / 2))
+                .Union(PuzzleJointWithBottomRemoved.TranslateY(mainArea.Breadth / 2 + PuzzleJointWithBottomRemoved.Breadth / 2).TranslateX(distX)
+                    .TranslateZ(-PuzzleJointWithBottomRemoved.Height / 2 + Height / 2))
                 .Union(jointCap.TranslateY(mainArea.Breadth / 2 - jointCap.Breadth / 2).TranslateX(-distX)
                     .TranslateZ(jointCap.Height / 2 - Height / 2))
-                .Union(PuzzleJoint.TranslateY(mainArea.Breadth / 2 + PuzzleJoint.Breadth / 2).TranslateX(-distX)
-                    .TranslateZ(PuzzleJoint.Height / 2 - Height / 2));
+                .Union(PuzzleJointWithBottomRemoved.TranslateY(mainArea.Breadth / 2 + PuzzleJointWithBottomRemoved.Breadth / 2).TranslateX(-distX)
+                    .TranslateZ(-PuzzleJointWithBottomRemoved.Height / 2 + Height / 2));
         }
     }
+
+    private PuzzleJoint PuzzleJointWithBottomRemoved => PuzzleJoint with { Height = PuzzleJoint.Height - 1.5m - Tolerance };
 
     public override string ToOpenScad() => Shape.ToOpenScad();
 }
