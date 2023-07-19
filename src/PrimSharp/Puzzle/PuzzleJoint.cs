@@ -19,21 +19,32 @@ public record PuzzleJoint : Prim, ISize
     public decimal Breadth => JoinerLength + Radius;
 
     public decimal[] Size => new decimal[3] { Width, Breadth, Height };
+    
+    public bool HasNubbin { get; init; }
 
-    private Cube Arm => new Cube(JoinerThickness, JoinerLength, Height);
+    private Cube Arm => new(JoinerThickness, JoinerLength, Height);
 
-    private Cylinder Pip => new Cylinder(Radius, Height);
+    private Cylinder Pip => new(Radius, Height);
 
-    // public PuzzleJoint Clone() => CloneAs<PuzzleJoint>();
-
+    private IPrim PipMaybeWithNubbin =>
+        HasNubbin
+            ? Pip.Union(Nubbin.TranslateZ(-Pip.Height / 2 + Nubbin.Height / 2))
+            : Pip;
+    
     public PuzzleJoint() : this(DefaultHeight) { }
 
     public PuzzleJoint(decimal height) => Height = height;
 
     private IPrim Shape =>
         Arm.TranslateY(JoinerLength / 2)
-            .Union(Pip.TranslateY(JoinerLength))
+            .Union(PipMaybeWithNubbin.TranslateY(JoinerLength))
             .TranslateY(-Breadth / 2);
+
+    private Cylinder Nubbin => new()
+    {
+        Radius = Pip.Radius + 0.25m,
+        Height = 1
+    };
 
     public override string ToOpenScad() => Shape.ToOpenScad();
 }

@@ -15,6 +15,8 @@ public record Cylinder : Prim, ISizedPrim
     public Cylinder(decimal? radius, decimal? height) { Radius = radius ?? DefaultRadius; Height = height ?? DefaultHeight; }
 
     public decimal Radius { get; init; }
+    
+    public decimal? Radius2 { get; init; }
         
     public decimal Height { get; init; }
 
@@ -24,6 +26,11 @@ public record Cylinder : Prim, ISizedPrim
 
     public decimal Breadth => 2.0m * Radius;
 
+    private string RadiusParams =>
+        Radius2.HasValue
+            ? $"r1={Radius}, r2={Radius2}"
+            : $"r={Radius}";
+    
     public override string ToOpenScad() =>
-        $"cylinder(h={Height}, r={Radius}, $fn={Resolution}, center=true);";
+        $"cylinder(h={Height}, {RadiusParams}, $fn={Resolution}, center=true);";
 }

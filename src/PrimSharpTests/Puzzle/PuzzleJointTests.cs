@@ -13,5 +13,16 @@ public class PuzzleJointTests
 
     [Fact]
     public void Puzzle_joint() =>
-        _outputHelper.WriteLine(new PuzzleJoint().ToOpenScad());        
+        _outputHelper.WriteLine(new PuzzleJoint
+        {
+            Height = 10
+        }.ToOpenScad());
+    
+    [Fact]
+    public void Puzzle_joint_with_nubbin() =>
+        _outputHelper.WriteLine(new PuzzleJoint
+        {
+            Height = 10,
+            HasNubbin = true
+        }.ToOpenScad());
 }

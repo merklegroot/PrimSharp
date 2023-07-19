@@ -12,9 +12,15 @@ public class CylinderTests
         _outputHelper = outputHelper;
 
     [Fact]
-    public void Cylinder_with_defaults()
-    {
-        var result = new Cylinder().ToOpenScad();
-        _outputHelper.WriteLine(result);
-    }
+    public void Cylinder_with_defaults() =>
+        _outputHelper.WriteLine(new Cylinder().ToOpenScad());
+    
+    [Fact]
+    public void Cylinder_with_multiple_radii() =>
+        _outputHelper.WriteLine(new Cylinder
+        {
+            Height = 5,
+            Radius = 2,
+            Radius2 = 4
+        }.ToOpenScad());
 }
