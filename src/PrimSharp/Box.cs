@@ -25,21 +25,24 @@ public record Box : Cube
         FloorThickness = floorThickness;
     }
 
-    private Cube GenerateCutout() =>
-        new Cube(Width - 2 * WallThickness, Breadth - 2 * WallThickness, Height - FloorThickness);
-
-    private IPrim Shape
-    {
-        get
+    private Cube Cutout => new()
         {
-            var outer = CloneAs<Cube>();
-            var inner = GenerateCutout();
+            Width = Width - 2 * WallThickness,
+            Breadth = Breadth - 2 * WallThickness,
+            Height = Height - FloorThickness
+        };
 
-            return (!inner.IsEmpty
-                ? outer.Subtract(inner.TranslateZ(FloorThickness / 2))
-                : outer);
-        }
-    }
-        
+    private Cube Outer => new()
+        {
+            Width = Width,
+            Breadth = Breadth,
+            Height = Height
+        };
+
+    private IPrim Shape =>
+        !Cutout.IsEmpty
+            ? Outer.Subtract(Cutout.TranslateZ(FloorThickness / 2))
+            : Outer;
+
     public override string ToOpenScad() => Shape.ToOpenScad();
 }
