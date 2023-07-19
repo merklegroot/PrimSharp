@@ -15,27 +15,20 @@ public class PuzzleBumperTests
     [Fact]
     public void Puzzle_bumper()
     {
-        var smallCube = new Cube
+        var box = new Box
         {
             Width = 25,
-            Breadth = 20,
+            Breadth = 10,
             Height = 10
         };
 
-        var cutout = new Cube
-        {
-            Width = smallCube.Width - 2,
-            Breadth = smallCube.Breadth - 2,
-            Height = smallCube.Height - 1
-        };
-        
         var bumper = new PuzzleBumper
         {
-            Width = smallCube.Width,
-            Breadth = smallCube.Breadth
+            Width = box.Width,
+            Breadth = box.Breadth
         };
 
-        var boxBumper = smallCube.Subtract(cutout.TranslateZ(cutout.Height / 2 - smallCube.Height / 2)).Union(bumper.TranslateZ(bumper.Height / 2 - smallCube.Height / 2));
+        var boxBumper = box.Union(bumper.TranslateZ(bumper.Height / 2 - box.Height / 2));
 
         _outputHelper.WriteLine(boxBumper.ToOpenScad());
     }

@@ -23,6 +23,8 @@ public class PuzzleJointTests
         _outputHelper.WriteLine(new PuzzleJoint
         {
             Height = 10,
-            HasNubbin = true
+            NubbinHeight = 2.5m,
+            NubbinAdditionalRadius = 0.25m,
+            IsNubbinTapered = true
         }.ToOpenScad());
 }

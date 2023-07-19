@@ -18,14 +18,26 @@ public record PuzzleBumper : Prim, ISizedPrim
 
     public decimal Height { get; init; } = DefaultHeight;
 
-    private PuzzleJoint PuzzleJoint => new(DefaultHeight);
+    private PuzzleJoint PuzzleJoint => new()
+    {
+        Height = DefaultHeight,
+        NubbinHeight = 2.0m,
+        NubbinAdditionalRadius = 0.25m,
+        IsNubbinTapered = true
+    };
 
-    private PuzzleJointCutout PuzzleJointCutout => new(DefaultHeight);
+    private PuzzleJointCutout PuzzleJointCutout => new()
+    {
+        Height = DefaultHeight,
+        NubbinHeight = 2.5m,
+        NubbinAdditionalRadius = 0.30m,
+        IsNubbinTapered = false
+    };
 
     private PuzzleJointCutout PuzzleJointCutoutWithBottomSectionAdded =>
         PuzzleJointCutout with
             {
-                Height = PuzzleJointCutout.Height - 1.5m// - Tolerance
+                Height = PuzzleJointCutout.Height - 1.5m
             };
         
     private IPrim Shape

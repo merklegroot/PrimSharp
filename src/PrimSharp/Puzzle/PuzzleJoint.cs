@@ -18,22 +18,22 @@ public record PuzzleJoint : Prim, ISize
 
     public decimal Breadth => JoinerLength + Radius;
 
-    public decimal[] Size => new decimal[3] { Width, Breadth, Height };
+    public decimal[] Size => new[] { Width, Breadth, Height };
+
+    public decimal? NubbinHeight { get; init; }
     
-    public bool HasNubbin { get; init; }
+    public decimal? NubbinAdditionalRadius { get; init; }
+    
+    public bool IsNubbinTapered { get; init; }
 
     private Cube Arm => new(JoinerThickness, JoinerLength, Height);
 
     private Cylinder Pip => new(Radius, Height);
 
     private IPrim PipMaybeWithNubbin =>
-        HasNubbin
+        NubbinHeight.HasValue && NubbinHeight.Value != default
             ? Pip.Union(Nubbin.TranslateZ(-Pip.Height / 2 + Nubbin.Height / 2))
             : Pip;
-    
-    public PuzzleJoint() : this(DefaultHeight) { }
-
-    public PuzzleJoint(decimal height) => Height = height;
 
     private IPrim Shape =>
         Arm.TranslateY(JoinerLength / 2)
@@ -42,8 +42,9 @@ public record PuzzleJoint : Prim, ISize
 
     private Cylinder Nubbin => new()
     {
-        Radius = Pip.Radius + 0.25m,
-        Height = 1
+        Radius = Pip.Radius + (IsNubbinTapered ? 0 : NubbinAdditionalRadius ?? 0),
+        Radius2 = Pip.Radius + (NubbinAdditionalRadius ?? 0),
+        Height = NubbinHeight ?? 0
     };
 
     public override string ToOpenScad() => Shape.ToOpenScad();
