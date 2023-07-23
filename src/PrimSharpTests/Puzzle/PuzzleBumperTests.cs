@@ -1,5 +1,6 @@
 ﻿using PrimSharp;
 using PrimSharp.Puzzle;
+using Shouldly;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -29,7 +30,23 @@ public class PuzzleBumperTests
         };
 
         var boxBumper = box.Union(bumper.TranslateZ(bumper.Height / 2 - box.Height / 2));
+        var half = new Cube
+        {
+            Width = 100,
+            Breadth = 100,
+            Height = box.Height
+        };
 
-        _outputHelper.WriteLine(boxBumper.ToOpenScad());
+        var splitter = new Cube
+        {
+            Width = 100,
+            Breadth = 0.5m,
+            Height = 100
+        };
+
+        _outputHelper.WriteLine(
+            boxBumper
+                .Subtract(splitter)
+                .Subtract(half.TranslateX(half.Width / 2)).ToOpenScad());
     }
 }

@@ -2,7 +2,7 @@
 
 public record PuzzleJointCutout : PuzzleJoint
 {
-    protected override decimal Radius => 1.15m * base.Radius;
+    protected override decimal Radius => 1.05m * base.Radius;
 
     protected override decimal JoinerThickness => 1.25m * base.Radius;
 
