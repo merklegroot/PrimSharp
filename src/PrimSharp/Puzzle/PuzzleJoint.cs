@@ -8,7 +8,8 @@ public record PuzzleJoint : Prim, ISize
 
     protected virtual decimal Radius => DefaultRadius;
 
-    protected virtual decimal JoinerLength => 1.55m * Radius;
+    protected virtual decimal JoinerLength => 1.25m * Radius;
+        //1.55m * Radius;
 
     protected virtual decimal JoinerThickness => Radius;
 

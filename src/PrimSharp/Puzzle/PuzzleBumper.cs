@@ -22,7 +22,7 @@ public record PuzzleBumper : Prim, ISizedPrim
     {
         Height = DefaultHeight,
         NubbinHeight = 1.0m,
-        NubbinAdditionalRadius = 0.35m,
+        NubbinAdditionalRadius = 0.33m,
         IsNubbinTapered = true
     };
 
