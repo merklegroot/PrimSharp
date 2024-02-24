@@ -8,7 +8,8 @@ public class PuzzleSwitchTests
 {
     private readonly ITestOutputHelper _outputHelper;
 
-    public PuzzleSwitchTests(ITestOutputHelper outputHelper) => _outputHelper = outputHelper;
+    public PuzzleSwitchTests(ITestOutputHelper outputHelper) => 
+        _outputHelper = outputHelper;
 
     [Fact]
     public void Puzzle_switch() =>

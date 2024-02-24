@@ -8,7 +8,8 @@ public class PuzzlePcaTests
 {
     private readonly ITestOutputHelper _outputHelper;
 
-    public PuzzlePcaTests(ITestOutputHelper outputHelper) => _outputHelper = outputHelper;
+    public PuzzlePcaTests(ITestOutputHelper outputHelper) => 
+        _outputHelper = outputHelper;
 
     [Fact]
     public void Pca_puzzle() =>

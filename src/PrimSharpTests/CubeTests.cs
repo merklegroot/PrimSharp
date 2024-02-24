@@ -31,11 +31,6 @@ public class CubeTests
     }
 
     [Fact]
-    public void Cube_subtraction_test()
-    {
-        var a = new Cube();
-        var b = new Cube();
-
-        _outputHelper.WriteLine(a.Subtract(b).ToOpenScad());
-    }
+    public void Cube_subtraction_test() =>
+        _outputHelper.WriteLine(new Cube().Subtract(new Cube()).ToOpenScad());
 }

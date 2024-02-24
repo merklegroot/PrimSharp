@@ -8,8 +8,10 @@ public class SplicerContainerTests
 {
     private readonly ITestOutputHelper _outputHelper;
 
-    public SplicerContainerTests(ITestOutputHelper outputHelper) => _outputHelper = outputHelper;
+    public SplicerContainerTests(ITestOutputHelper outputHelper) => 
+        _outputHelper = outputHelper;
 
     [Fact]
-    public void Splicer_container() => _outputHelper.WriteLine(new SplicerContainer().ToOpenScad());
+    public void Splicer_container() => 
+        _outputHelper.WriteLine(new SplicerContainer().ToOpenScad());
 }

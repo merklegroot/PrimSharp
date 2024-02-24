@@ -12,10 +12,6 @@ public class EcoBrickTests
         _outputHelper = outputHelper;
 
     [Fact]
-    public void Ecobrick_test()
-    {
-        _outputHelper.WriteLine(
-            new EcoBrick().ToOpenScad()
-        );
-    }
+    public void Ecobrick_test() =>
+        _outputHelper.WriteLine(new EcoBrick().ToOpenScad());    
 }

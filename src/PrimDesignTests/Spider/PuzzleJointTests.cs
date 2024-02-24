@@ -9,10 +9,8 @@ public class PuzzleJointTests
 {
     private readonly ITestOutputHelper _outputHelper;
 
-    public PuzzleJointTests(ITestOutputHelper outputHelper)
-    {
+    public PuzzleJointTests(ITestOutputHelper outputHelper) =>
         _outputHelper = outputHelper;
-    }
 
     [Fact]
     public void Puzzle_joint_with_defaults()

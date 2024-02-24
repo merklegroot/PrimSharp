@@ -8,7 +8,8 @@ public class PuzzleNanoTests
 {
     private readonly ITestOutputHelper _outputHelper;
 
-    public PuzzleNanoTests(ITestOutputHelper outputHelper) => _outputHelper = outputHelper;
+    public PuzzleNanoTests(ITestOutputHelper outputHelper) => 
+        _outputHelper = outputHelper;
 
     [Fact]
     public void Puzzle_nano() =>

@@ -12,8 +12,6 @@ public class BarrelHingeTests
         _outputHelper = outputHelper;
 
     [Fact]
-    public void Barrel_hing_to_open_scad()
-    {
+    public void Barrel_hing_to_open_scad() =>    
         _outputHelper.WriteLine(new BarrelHinge().ToOpenScad());
-    }
 }

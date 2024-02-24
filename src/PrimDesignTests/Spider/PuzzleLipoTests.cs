@@ -8,7 +8,8 @@ public class PuzzleLipoTests
 {
     private readonly ITestOutputHelper _outputHelper;
 
-    public PuzzleLipoTests(ITestOutputHelper outputHelper) => _outputHelper = outputHelper;
+    public PuzzleLipoTests(ITestOutputHelper outputHelper) => 
+        _outputHelper = outputHelper;
 
     [Fact]
     public void Puzzle_lipo() =>
