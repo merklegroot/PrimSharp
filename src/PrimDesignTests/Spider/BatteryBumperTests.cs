@@ -1,5 +1,4 @@
 ﻿using PrimDesign.Spider;
-using PrimSharp;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -13,6 +12,6 @@ public class BatteryBumperTests
         _outputHelper = outputHelper;
 
     [Fact]
-    public void Battery_container() => 
+    public void Battery_bumper() => 
         _outputHelper.WriteLine(new BatteryBumper().ToOpenScad());
 }
